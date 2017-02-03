@@ -1,0 +1,20 @@
+﻿@model TpayneandCo.Models.ContactModel
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<TpayneandCo.Models.ContactModel>
+
+@Html.BeginUmbracoForm("Action", "Controller", null, new { @id = "frmMainContact" })
+@using (Html.BeginUmbracoForm("Submit", "ContactForm", new { @id = "formContact" }))
+{
+    <div>
+        
+        @Html.TextBoxFor(m => m.Name, new { placeholder = Html.DisplayNameFor(n => n.Name) })
+
+
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.Email)
+    </div>
+    <div>
+        @Html.TextAreaFor(m => m.Message)
+    </div>
+    <input type="submit" name="Submit" value="Submit" />
+}

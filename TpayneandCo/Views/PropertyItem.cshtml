@@ -1,0 +1,204 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.UmbPropertyDetails>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@using System.Globalization;
+@{
+    Layout = "umbLayout.cshtml";
+    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
+        ? CurrentPage.Name
+        : CurrentPage.Title;
+
+    var imagesList = Model.Content.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+    var imagesCollection = Umbraco.TypedMedia(imagesList).Where(x => x != null);
+}
+
+<div id="main-wrapper">
+    <div id="main" class="container">
+        <div class="row">
+            <div class="12u">
+                <header>
+                    <h2>@pageTitle</h2>
+                    <p>@(String.Format(new CultureInfo("en-GB"), "{0:C}", 170000) )</p>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="@imagesCollection.First().Url" alt="">
+            </div>
+
+            <div class="col-md-4">
+                <h3>Description</h3>
+                <p>@CurrentPage.mainSummary</p>
+
+                <h3>Details</h3>
+
+                <a target="_blank" class="btn button" col-md-12 col-sm-6 col-xs-12" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
+                    <i class="fa fa-link"></i><span> Brochure</span>
+                </a>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">Property Images</h3>
+            </div>
+            @foreach (var image in imagesCollection)
+            {
+                <div class="col-sm-3 col-xs-6 image-set">
+                    <a href="@image.Url" class="example-image-link thumbnail" data-lightbox="example-set">
+                        <img class="example-image img-responsive portfolio-item" src="@image.Url" alt="@image.Name">
+                    </a>
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tabbable-panel">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="#description" data-toggle="tab">
+                                    Description
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#floorplan" data-toggle="tab">
+                                    Floorplan
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#epc" data-toggle="tab">
+                                    EPC
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="description">
+                                <p>
+                                    @Html.Raw(CurrentPage.FullDescription)
+                                </p>
+
+                            </div>
+                            <div class="tab-pane" id="floorplan">
+                                <p>
+                                    <img src="@Html.Raw(Model.Content.GetPropertyValue<string>("floorplans").StripHtml())" />
+                                </p>
+                            </div>
+                            <div class="tab-pane" id="epc">
+                                <p>
+                                    <a target="_blank" href="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())">
+                                        <img src="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())" />
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/scripts/lightbox.js"></script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
+<script>
+var map, marker;
+
+function initMap() {
+
+	var mapOptions = {
+	  center: new google.maps.LatLng( 51.5286416,-0.1015987),
+	  zoom: 12,
+	  scrollwheel: false,
+	  streetViewControl: true,
+		disableDefaultUI: true
+	};
+
+	map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+
+    	var customIcon = new google.maps.MarkerImage(
+		'http://www.tpayneandco.co.uk/wp-content/themes/realty/lib/images/map-marker/map-marker-gold-fat.png',
+		null, // size is determined at runtime
+	  null, // origin is 0,0
+	  null, // anchor is bottom center of the scaled image
+	  new google.maps.Size(50, 69)
+	);
+			var markerClusterOptions = {
+		gridSize: 60, // Default: 60
+		maxZoom: 14,
+		styles: [{
+			width: 50,
+			height: 50,
+			url: "http://www.tpayneandco.co.uk/wp-content/themes/realty/lib/images/map-marker/map-marker-gold-round.png"
+		}]
+	};
+			var marker = new google.maps.Marker({
+    map: map,
+    position: new google.maps.LatLng( 51.5286416,-0.1015987),
+    icon: customIcon,
+    title: 'Early viewings are essential on this 3 bedroom modern semi detached house.',
+		  });
+
+	var propertyThumbnail = '<img width="300" height="225" src="http://www.tpayneandco.co.uk/wp-content/uploads/2017/01/DSC03971-300x225.jpg" class="attachment-medium wp-post-image" alt="dsc03971" />';
+	var propertyThumbnail=propertyThumbnail.replace(/'/g, '&quot;');
+    var propertyPrice = '£190,000';
+    var propertyPrice=propertyPrice.replace(/'/g, '&quot;');
+    var propertyTitle = '<h5 class="title">Early viewings are essential on this 3 bedroom modern semi detached house.</h5>';
+    var propertyTitle=propertyTitle.replace(/'/g, '&quot;');
+	// http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/docs/reference.html
+	var infobox = new InfoBox({
+	  content: 	'<div class="map-marker-wrapper">'+
+    						'<div class="map-marker-container">'+
+	    						'<div class="arrow-down"></div>'+
+									propertyThumbnail+
+									'<div class="content">'+
+									propertyTitle+
+									propertyPrice+
+									'</div>'+
+								'</div>'+
+					    '</div>',
+	  disableAutoPan: false,
+	  pixelOffset: new google.maps.Size(-33, -90),
+	  zIndex: null,
+	  alignBottom: true,
+	  closeBoxURL: "http://www.tpayneandco.co.uk/wp-content/themes/realty/lib/images/close.png",
+	  infoBoxClearance: new google.maps.Size(50, 50)
+	});
+		//alert("got latlng");
+	function getLatLng(callback) {
+		latLng = new google.maps.LatLng(52.4484483, 0.04582349999998314);
+		callback(latLng);
+	}
+
+  getLatLng(function(latLng) {
+
+	  marker.setPosition(latLng);
+	  map.setCenter(latLng);
+	  map.setZoom(14);
+   	google.maps.event.addListener(marker, 'click', function() {
+	  	infobox.open(map, marker);
+	    map.panTo(latLng);
+		});
+
+  });
+
+	// Maps Fully Loaded: Hide + Remove Spinner
+	google.maps.event.addListenerOnce(map, 'idle', function() {
+		jQuery('.spinner').fadeTo(800, 0.5);
+		setTimeout(function() {
+		  jQuery('.spinner').remove();
+		}, 800);
+	});
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initMap);
+google.maps.event.addDomListener(window, 'resize', initMap);
+
+    </script>
