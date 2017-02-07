@@ -1,0 +1,108 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.UmbPropertyDetails>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@using System.Globalization;
+@{
+	Layout = "umbLayout.cshtml";
+	var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
+        ? CurrentPage.Name
+        : CurrentPage.Title;
+	
+	var imagesList = Model.Content.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+	var imagesCollection = Umbraco.TypedMedia(imagesList).Where(x => x != null);
+}
+
+<div id="main-wrapper">
+    <div id="main" class="container">
+        <div class="row">
+            <div class="9u 12u(mobile) important(mobile)">
+				<div class="content content-left">
+					<!-- Content -->
+					<article class="box page-content">
+						<header>
+							<h2>@pageTitle</h2>
+                    		<p>@(String.Format(new CultureInfo("en-GB"), "{0:C}", CurrentPage.Price) )</p>
+						</header>
+						<section>
+							<span class="image featured"><img class="img-responsive" src="@imagesCollection.First().Url" alt=""></span>
+						</section>
+					</article>
+				</div>
+            </div>
+			<div class="3u 12u(mobile)">
+				<div class="sidebar">
+					<!-- Sidebar -->
+					<section>
+						<h2 class="major"><span>Summary</span></h2>
+						<p>@CurrentPage.mainSummary</p>
+					</section>
+					<section>
+						<h2 class="major"><span>Details</span></h2>
+						<a target="_blank" class="btn button" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
+							<i class="fa fa-link"></i><span> Brochure</span>
+						</a>
+					</section>
+				</div>
+			</div>
+        </div>
+        <div class="row">
+            <div class="12u">
+				<h2 class="major"><span><i class="fa fa-picture-o" aria-hidden="true"></i></span></h2>
+            </div>
+            @foreach (var image in imagesCollection)
+            {
+                <div class="3u 6u(mobile) image-set">
+                    <a href="@image.Url" class="example-image-link thumbnail" data-lightbox="example-set">
+                        <img class="example-image img-responsive portfolio-item" src="@image.Url" alt="@image.Name">
+                    </a>
+                </div>
+            }
+        </div>
+ 		<div class="row">
+            <div class="12u">
+                <div class="tabbable-panel">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="#description" data-toggle="tab">
+                                    Description
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#floorplan" data-toggle="tab">
+                                    Floorplan
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#epc" data-toggle="tab">
+                                    EPC
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="description">
+                                <p>
+                                    @Html.Raw(CurrentPage.FullDescription)
+                                </p>
+
+                            </div>
+                            <div class="tab-pane" id="floorplan">
+                                <p>
+                                    <img src="@Html.Raw(Model.Content.GetPropertyValue<string>("floorplans").StripHtml())" />
+                                </p>
+                            </div>
+                            <div class="tab-pane" id="epc">
+                                <p>
+                                    <a target="_blank" href="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())">
+                                        <img src="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())" />
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/scripts/lightbox.js"></script>
