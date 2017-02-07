@@ -15,14 +15,17 @@
     <meta name="keywords" content="" />
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/config.js"></script>
+    @*<script src="/js/config.js"></script>
     <script src="/js/skel.min.js"></script>
-    <script src="/js/skel-panels.min.js"></script>
-    <noscript>
+    <script src="/js/skel-panels.min.js"></script>*@
+    @*<noscript>
         <link rel="stylesheet" href="/css/skel-noscript.css" />
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/style-desktop.css" />
-    </noscript>
+    </noscript>*@
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/owl.carousel.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><script src="/js/html5shiv.js"></script><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
     <!--[if lte IE 7]><link rel="stylesheet" href="/css/ie7.css" /><![endif]-->
@@ -30,15 +33,67 @@
 <body class="homepage">
     <!-- Header -->
     <header id="header">
+        <div id="header-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 hidden-xs hidden-sm"><a href="/"><img src="images/logo-white.png" alt="logo"></a>
+                    </div>
+                    <div class="col-md-10 col-sm-12 col-xs-12">
+                        <div class="get-tuch text-left top20">
+                            <i class="icon-telephone114"></i>
+                            <ul>
+                                <li>
+                                    <h4>Phone Number</h4>
+                                </li>
+                                <li>
+                                    <p>01354 696700</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="get-tech-line top20"><img src="images/get-tuch-line.png" alt="line">
+                        </div>
+                        <div class="get-tuch text-left top20">
+                            <i class="icon-icons74"></i>
+                            <ul>
+                                <li>
+                                    <h4>Victoria Hall,</h4>
+                                </li>
+                                <li>
+                                    <p>Idea Homes Melbourne, australia</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="get-tech-line top20"><img src="images/get-tuch-line.png" alt="line">
+                        </div>
+                        <div class="get-tuch text-left top20">
+                            <i class="icon-icons142"></i>
+                            <ul>
+                                <li>
+                                    <h4>Email Address</h4>
+                                </li>
+                                <li>
+                                    <p><a href="#">info@tpayneandco.co.uk</a>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="logo">
             <div>
-                <h1><a href="/" id="logo">@Umbraco.Field("siteName", recursive: true)</a></h1>
+                <h1><a href="/" id="logo">@Umbraco.Field("siteName", recursive: true)</a>
+                </h1>
                 <span class="byline">@Umbraco.Field("byline", recursive: true)</span>
             </div>
         </div>
+        <div class="wrap-sticky">
+            @{ Html.RenderPartial("umbTopNavigation"); }        
+        </div>
     </header>
     <!-- /Header -->
-    @{ Html.RenderPartial("umbTopNavigation"); }
+
 
     @RenderBody()
 
@@ -63,5 +118,7 @@
         </div>
     </footer>
     <!-- /Footer -->
+
+    <script src="/scripts/owl.carousel.min.js"></script>
 </body>
 </html>
