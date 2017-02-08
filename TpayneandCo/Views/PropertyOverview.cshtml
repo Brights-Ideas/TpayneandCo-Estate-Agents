@@ -6,6 +6,8 @@
 
 <div id="main-wrapper">
     <div id="main">
-		@Umbraco.RenderMacro("ezSearch", new {rootContentNodeId="1106", rootMediaNodeId="", indexType="CONTENT", searchFields="regionID, price, availability, propertyBedrooms", previewFields="pageTitle, images, availability", previewLength="", pageSize="9", hideFromSearchField="", searchFormLocation="TOP"})
-	</div>
+        <div class="container">
+            @Umbraco.RenderMacro("ezSearch", new {rootContentNodeId = "1106", rootMediaNodeId = "", indexType = "BOTH", searchFields = "regionID, price, availability, propertyBedrooms, images", previewFields = "pageTitle, images, availability", previewLength = "", pageSize = "9", hideFromSearchField = "", searchFormLocation = "TOP"})
+        </div>
+    </div>
 </div>

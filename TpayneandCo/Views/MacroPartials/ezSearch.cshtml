@@ -18,7 +18,7 @@
         //MinPrice = Convert.ToInt32(Request["MinPrice"]),
         //MaxPrice = Convert.ToInt32(Request["MaxPrice"]),
         //SortOrder = "" + Request["orderby"],
-        SearchTerm = "(Location=" + Request["Location"] + ")" + "(MinPrice=" + Request["MinPrice"] + ")" + "(MaxPrice=" + Request["MaxPrice"] + ")",
+        SearchTerm = "Location=" + Request["Location"] + " - " + "MinPrice=" + Request["MinPrice"] + " - " + "MaxPrice=" + Request["MaxPrice"] + " - ",
         CurrentPage = int.TryParse(Request["p"], out parsedInt) ? parsedInt : 1,
 
         PageSize = GetMacroParam(Model, "pageSize", s => int.Parse(s), 10),
@@ -70,10 +70,14 @@
         //model.SearchTerms = Tokenize(model.SearchTerm);
 
         // Perform the search
-        var searcher = ExamineManager.Instance.SearchProviderCollection["ExternalSearcher"];
-        var criteria = searcher.CreateSearchCriteria();
-        var query = new StringBuilder();
-        query.AppendFormat("-{0}:1 ", model.HideFromSearchField);
+        //var searcher = ExamineManager.Instance.SearchProviderCollection["ExternalSearcher"];
+        //var criteria = searcher.CreateSearchCriteria();
+        //var query = new StringBuilder();
+        //query.AppendFormat("-{0}:1 ", model.HideFromSearchField);
+        //
+        var searcher = ExamineManager.Instance.CreateSearchCriteria();
+        var query = searcher.NodeTypeAlias("umbPropertyDetails");
+        query.Not().Field("umbracoNaviHide", "1");
 
         // Set search path
         var contentPathFilter = model.RootContentNodeId > 0
@@ -84,42 +88,48 @@
             ? string.Format("__IndexType:{0} +searchPath:{1}", UmbracoExamine.IndexTypes.Media, model.RootMediaNodeId)
             : string.Format("__IndexType:{0}", UmbracoExamine.IndexTypes.Media);
 
-        switch (model.IndexType)
-        {
-            case UmbracoExamine.IndexTypes.Content:
-                query.AppendFormat("+({0}) ", contentPathFilter);
-                break;
-            case UmbracoExamine.IndexTypes.Media:
-                query.AppendFormat("+({0}) ", mediaPathFilter);
-                break;
-            default:
-                query.AppendFormat("+(({0}) ({1})) ", contentPathFilter, mediaPathFilter);
-                break;
-        }
+        //switch (model.IndexType)
+        //{
+        //    case UmbracoExamine.IndexTypes.Content:
+        //        query.AppendFormat("+({0}) ", contentPathFilter);
+        //        break;
+        //    case UmbracoExamine.IndexTypes.Media:
+        //        query.AppendFormat("+({0}) ", mediaPathFilter);
+        //        break;
+        //    default:
+        //        query.AppendFormat("+(({0}) ({1})) ", contentPathFilter, mediaPathFilter);
+        //        break;
+        //}
 
         // Ensure page contains all search terms in some way
-        foreach (var term in model.SearchTerms)
-        {
-            var groupedOr = new StringBuilder();
-            foreach (var searchField in model.SearchFields)
-            {
-                groupedOr.AppendFormat("{0}:{1}* ", searchField, term);
-            }
-            query.Append("+(" + groupedOr.ToString() + ") ");
-        }
+        //foreach (var term in model.SearchTerms)
+        //{
+        //    var groupedOr = new StringBuilder();
+        //    foreach (var searchField in model.SearchFields)
+        //    {
+        //        groupedOr.AppendFormat("{0}:{1}* ", searchField, term);
+        //    }
+        //    query.Append("+(" + groupedOr.ToString() + ") ");
+        //}
+        //if (model.Location != "any")
+        //{
+        //    query.And().Field("regionID", model.Location);
+        //}
 
         // Rank content based on positon of search terms in fields
         for (var i = 0; i < model.SearchFields.Count; i++)
         {
             foreach (var term in model.SearchTerms)
             {
-                query.AppendFormat("{0}:{1}*^{2} ", model.SearchFields[i], term, model.SearchFields.Count - i);
+                //query.AppendFormat("{0}:{1}*^{2} ", model.SearchFields[i], term, model.SearchFields.Count - i);
+                query.And().Field(term.Key, term.Value);
             }
         }
 
-        var criteria2 = criteria.RawQuery(query.ToString());
+        //var criteria2 = criteria.RawQuery(query.ToString());
 
-        var results = searcher.Search(criteria2)
+        //var results = searcher.Search(criteria2)
+        var results = ExamineManager.Instance.Search(query.Compile())
            .Where(x => (
                 !Umbraco.IsProtected(int.Parse(x.Fields["id"]), x.Fields["path"]) ||
                 (
@@ -379,6 +389,11 @@
 @helper RenderSummary(SearchViewModel model)
 {
     <div class="ezsearch-summary">
+        @foreach (var term in model.SearchTerms)
+        {
+            FormatHtml(GetDictionaryValue("[ezSearch] Summary", "Your search for <strong>\"{0}\"</strong> matched <strong>{1}</strong> page(s)."), term.Value);
+        }
+
         <p>@FormatHtml(GetDictionaryValue("[ezSearch] Summary", "Your search for <strong>\"{0}\"</strong> matched <strong>{1}</strong> page(s)."), model.SearchTerm, model.TotalResults)</p>
     </div>
 }
@@ -395,7 +410,7 @@
 
 @helper RenderResults(SearchViewModel model)
 {
-    <div class="ezsearch-results">
+    <div class="ezsearch-results row">
         @foreach (var result in model.PagedResults)
         {
             switch (result.Fields["__IndexType"])
@@ -415,13 +430,25 @@
 
 @helper RenderContentResult(SearchViewModel model, IPublishedContent result)
 {
-    <div class="ezsearch-result">
-        <h2><a href="@result.Url">@result.Name</a></h2>
-        @foreach (var field in model.PreviewFields.Where(field => result.HasValue(field)))
-        {
-            <p>@Highlight(Truncate(Umbraco.StripHtml(result.GetPropertyValue(field).ToString()), model.PreviewLength), model.SearchTerms.Values)</p>
-            break;
-        }
+    var mainImages = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).First();
+    var imagesCollection = Umbraco.TypedMedia(mainImages);
+
+    <div class="ezsearch-result col-md-4 col-sm-4">
+        <div class="property_item">
+            <div class="image">
+                <h2>
+                    <a href="@result.Url">@result.Name</a>
+                </h2>
+                <img src="@imagesCollection.Url" alt="@imagesCollection.Name" class="img-responsive" />
+            </div>
+            <div class="property_meta">
+                @foreach (var field in model.PreviewFields.Where(field => result.HasValue(field)))
+                {
+                    <p>@Highlight(Truncate(Umbraco.StripHtml(result.GetPropertyValue(field).ToString()), model.PreviewLength), model.SearchTerms.Values)</p>
+                    break;
+                }
+            </div>
+        </div>
     </div>
 }
 
@@ -599,6 +626,7 @@
         public string SearchTerm { get; set; }
         public Dictionary<string, string> SearchTerms { get; set; }
         //public IEnumerable<string> SearchTerms { get; set; }
+        public Coordinate Coordinates { get; set; }
         public int CurrentPage { get; set; }
 
         // Options
@@ -619,4 +647,22 @@
         public IEnumerable<SearchResult> AllResults { get; set; }
         public IEnumerable<SearchResult> PagedResults { get; set; }
     }
+
+    public class Coordinate
+    {
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+
+        public Coordinate()
+        {
+
+        }
+
+        public Coordinate(double latitude, double longitude)
+        {
+            Latitude = latitude;
+            Longitude = longitude;
+        }
+    }
+
 }
