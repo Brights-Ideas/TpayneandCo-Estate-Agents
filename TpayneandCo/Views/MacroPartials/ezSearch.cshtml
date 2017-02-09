@@ -1,6 +1,7 @@
 @using System.Globalization
 @using System.Text
 @using System.Text.RegularExpressions
+@using CMSImport.Extensions.TypeExtensions
 @using Examine
 @using Umbraco.Core.Logging
 @using Umbraco.Web.Models
@@ -18,6 +19,7 @@
         //MinPrice = Convert.ToInt32(Request["MinPrice"]),
         //MaxPrice = Convert.ToInt32(Request["MaxPrice"]),
         //SortOrder = "" + Request["orderby"],
+        Department = "" + Request["department"],
         SearchTerm = "Location=" + Request["Location"] + " - " + "MinPrice=" + Request["MinPrice"] + " - " + "MaxPrice=" + Request["MaxPrice"] + " - ",
         CurrentPage = int.TryParse(Request["p"], out parsedInt) ? parsedInt : 1,
 
@@ -100,6 +102,13 @@
         //        query.AppendFormat("+(({0}) ({1})) ", contentPathFilter, mediaPathFilter);
         //        break;
         //}
+
+        query.And().Field("department", model.Department);
+
+        //Get the property’s location from the document. 
+        //string[] location = query.Compile().ToDecimal().Field("location").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        //double lat = Convert.ToDouble(location[0]);
+        //double lng = Convert.ToDouble(location[1]);
 
         // Ensure page contains all search terms in some way
         //foreach (var term in model.SearchTerms)
@@ -199,163 +208,174 @@
 
 @helper RenderForm(SearchViewModel model)
 {
-    <form action="" method="get" class="property-search-form ezsearch-form" >
-        <div class="row">
-            @*Residential Sales *@
-            <div class="3u 12u(mobile) form-group select">
-                <select name="Location" class="form-control selectpicker" data-none-selected-text="Any Location">
-                    <option value="any">Any Location</option>
-                    <option value="1">
-                        Wisbech
-                    </option>
-                    <option value="2">
-                        Benwick
-                    </option>
-                    <option value="4">
-                        Doddington
-                    </option>
-                    <option value="5">
-                        March
-                    </option>
-                    <option value="7">
-                        Chatteris
-                    </option>
-                    <option value="9">
-                        Ramsey
-                    </option>
-                    <option value="31">
-                        Ely
-                    </option>
-                </select>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-3 form-group select">
-                <select name="MinBedrooms" class="form-control selectpicker">
-                    <option value="0">No Min Beds</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-3 form-group dropdown-double">
-                <select name="MinPrice" class="selectpicker">
-                    <option value="0">Min Price</option>
-                    <option value="50000">&pound;50,000</option>
-                    <option value="60000">&pound;60,000</option>
-                    <option value="70000">&pound;70,000</option>
-                    <option value="80000">&pound;80,000</option>
-                    <option value="90000">&pound;90,000</option>
-                    <option value="100000">&pound;100,000</option>
-                    <option value="110000">&pound;110,000</option>
-                    <option value="120000">&pound;120,000</option>
-                    <option value="125000">&pound;125,000</option>
-                    <option value="130000">&pound;130,000</option>
-                    <option value="140000">&pound;140,000</option>
-                    <option value="150000">&pound;150,000</option>
-                    <option value="160000">&pound;160,000</option>
-                    <option value="170000">&pound;170,000</option>
-                    <option value="175000">&pound;175,000</option>
-                    <option value="180000">&pound;180,000</option>
-                    <option value="190000">&pound;190,000</option>
-                    <option value="200000">&pound;200,000</option>
-                    <option value="210000">&pound;210,000</option>
-                    <option value="220000">&pound;220,000</option>
-                    <option value="230000">&pound;230,000</option>
-                    <option value="240000">&pound;240,000</option>
-                    <option value="250000">&pound;250,000</option>
-                    <option value="260000">&pound;260,000</option>
-                    <option value="270000">&pound;270,000</option>
-                    <option value="280000">&pound;280,000</option>
-                    <option value="290000">&pound;290,000</option>
-                    <option value="300000">&pound;300,000</option>
-                    <option value="325000">&pound;325,000</option>
-                    <option value="350000">&pound;350,000</option>
-                    <option value="375000">&pound;375,000</option>
-                    <option value="400000">&pound;400,000</option>
-                    <option value="425000">&pound;425,000</option>
-                    <option value="450000">&pound;450,000</option>
-                    <option value="475000">&pound;475,000</option>
-                    <option value="500000">&pound;500,000</option>
-                    <option value="550000">&pound;550,000</option>
-                    <option value="600000">&pound;600,000</option>
-                    <option value="650000">&pound;650,000</option>
-                    <option value="700000">&pound;700,000</option>
-                    <option value="800000">&pound;800,000</option>
-                    <option value="900000">&pound;900,000</option>
-                    <option value="1000000">&pound;1,000,000</option>
-                    <option value="1250000">&pound;1,250,000</option>
-                    <option value="1500000">&pound;1,500,000</option>
-                    <option value="1750000">&pound;1,750,000</option>
-                    <option value="2000000">&pound;2,000,000</option>
-                    <option value="2500000">&pound;2,500,000</option>
-                    <option value="3000000">&pound;3,000,000</option>
-                    <option value="4000000">&pound;4,000,000</option>
-                    <option value="5000000">&pound;5,000,000</option>
-                    <option value="7500000">&pound;7,500,000</option>
-                    <option value="10000000">&pound;10,000,000</option>
-                </select>
+    @
+    {
+        var CssClass = model.Department == "sales" ? model.Department : "lettings";
+    }
 
-                <div class="search-form divider">to</div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#sales" aria-controls="sales" role="tab" data-toggle="tab">Sales</a></li>
+        <li role="presentation"><a href="#lettings" aria-controls="lettings" role="tab" data-toggle="tab">Lettings</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="sales">
+            <form action="" method="get" class="property-search-form ezsearch-form">
+                <div class="row">
+                    @*Residential Sales *@
+                    <div class="3u 12u(mobile) form-group select">
+                        <select name="Location" class="form-control selectpicker" data-none-selected-text="Any Location">
+                            <option value="any">Any Location</option>
+                            <option value="1">
+                                Wisbech
+                            </option>
+                            <option value="2">
+                                Benwick
+                            </option>
+                            <option value="4">
+                                Doddington
+                            </option>
+                            <option value="5">
+                                March
+                            </option>
+                            <option value="7">
+                                Chatteris
+                            </option>
+                            <option value="9">
+                                Ramsey
+                            </option>
+                            <option value="31">
+                                Ely
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3 form-group select">
+                        <select name="MinBedrooms" class="form-control selectpicker">
+                            <option value="0">No Min Beds</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3 form-group dropdown-double">
+                        <select name="MinPrice" class="selectpicker">
+                            <option value="0">Min Price</option>
+                            <option value="50000">&pound;50,000</option>
+                            <option value="60000">&pound;60,000</option>
+                            <option value="70000">&pound;70,000</option>
+                            <option value="80000">&pound;80,000</option>
+                            <option value="90000">&pound;90,000</option>
+                            <option value="100000">&pound;100,000</option>
+                            <option value="110000">&pound;110,000</option>
+                            <option value="120000">&pound;120,000</option>
+                            <option value="125000">&pound;125,000</option>
+                            <option value="130000">&pound;130,000</option>
+                            <option value="140000">&pound;140,000</option>
+                            <option value="150000">&pound;150,000</option>
+                            <option value="160000">&pound;160,000</option>
+                            <option value="170000">&pound;170,000</option>
+                            <option value="175000">&pound;175,000</option>
+                            <option value="180000">&pound;180,000</option>
+                            <option value="190000">&pound;190,000</option>
+                            <option value="200000">&pound;200,000</option>
+                            <option value="210000">&pound;210,000</option>
+                            <option value="220000">&pound;220,000</option>
+                            <option value="230000">&pound;230,000</option>
+                            <option value="240000">&pound;240,000</option>
+                            <option value="250000">&pound;250,000</option>
+                            <option value="260000">&pound;260,000</option>
+                            <option value="270000">&pound;270,000</option>
+                            <option value="280000">&pound;280,000</option>
+                            <option value="290000">&pound;290,000</option>
+                            <option value="300000">&pound;300,000</option>
+                            <option value="325000">&pound;325,000</option>
+                            <option value="350000">&pound;350,000</option>
+                            <option value="375000">&pound;375,000</option>
+                            <option value="400000">&pound;400,000</option>
+                            <option value="425000">&pound;425,000</option>
+                            <option value="450000">&pound;450,000</option>
+                            <option value="475000">&pound;475,000</option>
+                            <option value="500000">&pound;500,000</option>
+                            <option value="550000">&pound;550,000</option>
+                            <option value="600000">&pound;600,000</option>
+                            <option value="650000">&pound;650,000</option>
+                            <option value="700000">&pound;700,000</option>
+                            <option value="800000">&pound;800,000</option>
+                            <option value="900000">&pound;900,000</option>
+                            <option value="1000000">&pound;1,000,000</option>
+                            <option value="1250000">&pound;1,250,000</option>
+                            <option value="1500000">&pound;1,500,000</option>
+                            <option value="1750000">&pound;1,750,000</option>
+                            <option value="2000000">&pound;2,000,000</option>
+                            <option value="2500000">&pound;2,500,000</option>
+                            <option value="3000000">&pound;3,000,000</option>
+                            <option value="4000000">&pound;4,000,000</option>
+                            <option value="5000000">&pound;5,000,000</option>
+                            <option value="7500000">&pound;7,500,000</option>
+                            <option value="10000000">&pound;10,000,000</option>
+                        </select>
 
-                <select name="MaxPrice" class="selectpicker">
-                    <option value="0">Max Price</option>
-                    <option value="50000">£50,000</option>
-                    <option value="60000">£60,000</option>
-                    <option value="70000">£70,000</option>
-                    <option value="80000">£80,000</option>
-                    <option value="90000">£90,000</option>
-                    <option value="100000">£100,000</option>
-                    <option value="110000">£110,000</option>
-                    <option value="120000">£120,000</option>
-                    <option value="125000">£125,000</option>
-                    <option value="130000">£130,000</option>
-                    <option value="140000">&pound;140,000</option>
-                    <option value="150000">&pound;150,000</option>
-                    <option value="160000">&pound;160,000</option>
-                    <option value="170000">&pound;170,000</option>
-                    <option value="175000">&pound;175,000</option>
-                    <option value="180000">&pound;180,000</option>
-                    <option value="190000">&pound;190,000</option>
-                    <option value="200000">&pound;200,000</option>
-                    <option value="210000">&pound;210,000</option>
-                    <option value="220000">&pound;220,000</option>
-                    <option value="230000">&pound;230,000</option>
-                    <option value="240000">&pound;240,000</option>
-                    <option value="250000">&pound;250,000</option>
-                    <option value="260000">&pound;260,000</option>
-                    <option value="270000">&pound;270,000</option>
-                    <option value="280000">&pound;280,000</option>
-                    <option value="290000">&pound;290,000</option>
-                    <option value="300000">&pound;300,000</option>
-                    <option value="325000">&pound;325,000</option>
-                    <option value="350000">&pound;350,000</option>
-                    <option value="375000">&pound;375,000</option>
-                    <option value="400000">&pound;400,000</option>
-                    <option value="425000">&pound;425,000</option>
-                    <option value="450000">&pound;450,000</option>
-                    <option value="475000">&pound;475,000</option>
-                    <option value="500000">&pound;500,000</option>
-                    <option value="550000">&pound;550,000</option>
-                    <option value="600000">&pound;600,000</option>
-                    <option value="650000">&pound;650,000</option>
-                    <option value="700000">&pound;700,000</option>
-                    <option value="800000">&pound;800,000</option>
-                    <option value="900000">&pound;900,000</option>
-                    <option value="1000000">&pound;1,000,000</option>
-                    <option value="1250000">&pound;1,250,000</option>
-                    <option value="1500000">&pound;1,500,000</option>
-                    <option value="1750000">&pound;1,750,000</option>
-                    <option value="2000000">&pound;2,000,000</option>
-                    <option value="2500000">&pound;2,500,000</option>
-                    <option value="3000000">&pound;3,000,000</option>
-                    <option value="4000000">&pound;4,000,000</option>
-                    <option value="5000000">&pound;5,000,000</option>
-                    <option value="7500000">&pound;7,500,000</option>
-                    <option value="10000000">&pound;10,000,000</option>
-                </select>
-            </div>
-            @*<div class="col-xs-12 col-sm-4 col-md-3 form-group select">
+                        <div class="search-form divider">to</div>
+
+                        <select name="MaxPrice" class="selectpicker">
+                            <option value="0">Max Price</option>
+                            <option value="50000">£50,000</option>
+                            <option value="60000">£60,000</option>
+                            <option value="70000">£70,000</option>
+                            <option value="80000">£80,000</option>
+                            <option value="90000">£90,000</option>
+                            <option value="100000">£100,000</option>
+                            <option value="110000">£110,000</option>
+                            <option value="120000">£120,000</option>
+                            <option value="125000">£125,000</option>
+                            <option value="130000">£130,000</option>
+                            <option value="140000">&pound;140,000</option>
+                            <option value="150000">&pound;150,000</option>
+                            <option value="160000">&pound;160,000</option>
+                            <option value="170000">&pound;170,000</option>
+                            <option value="175000">&pound;175,000</option>
+                            <option value="180000">&pound;180,000</option>
+                            <option value="190000">&pound;190,000</option>
+                            <option value="200000">&pound;200,000</option>
+                            <option value="210000">&pound;210,000</option>
+                            <option value="220000">&pound;220,000</option>
+                            <option value="230000">&pound;230,000</option>
+                            <option value="240000">&pound;240,000</option>
+                            <option value="250000">&pound;250,000</option>
+                            <option value="260000">&pound;260,000</option>
+                            <option value="270000">&pound;270,000</option>
+                            <option value="280000">&pound;280,000</option>
+                            <option value="290000">&pound;290,000</option>
+                            <option value="300000">&pound;300,000</option>
+                            <option value="325000">&pound;325,000</option>
+                            <option value="350000">&pound;350,000</option>
+                            <option value="375000">&pound;375,000</option>
+                            <option value="400000">&pound;400,000</option>
+                            <option value="425000">&pound;425,000</option>
+                            <option value="450000">&pound;450,000</option>
+                            <option value="475000">&pound;475,000</option>
+                            <option value="500000">&pound;500,000</option>
+                            <option value="550000">&pound;550,000</option>
+                            <option value="600000">&pound;600,000</option>
+                            <option value="650000">&pound;650,000</option>
+                            <option value="700000">&pound;700,000</option>
+                            <option value="800000">&pound;800,000</option>
+                            <option value="900000">&pound;900,000</option>
+                            <option value="1000000">&pound;1,000,000</option>
+                            <option value="1250000">&pound;1,250,000</option>
+                            <option value="1500000">&pound;1,500,000</option>
+                            <option value="1750000">&pound;1,750,000</option>
+                            <option value="2000000">&pound;2,000,000</option>
+                            <option value="2500000">&pound;2,500,000</option>
+                            <option value="3000000">&pound;3,000,000</option>
+                            <option value="4000000">&pound;4,000,000</option>
+                            <option value="5000000">&pound;5,000,000</option>
+                            <option value="7500000">&pound;7,500,000</option>
+                            <option value="10000000">&pound;10,000,000</option>
+                        </select>
+                    </div>
+                    @*<div class="col-xs-12 col-sm-4 col-md-3 form-group select">
                     <select name="" id="" class="form-control">
                         <option value="all">Any Status</option>
                         <option value="for-sale">
@@ -369,16 +389,159 @@
                         </option>
                     </select>
                 </div>*@
-            <div class="col-xs-12 col-sm-4 col-md-3 form-group">
-                <input type="submit" value="@(GetDictionaryValue("[ezSearch] Search", "Search"))" class="btn btn-primary btn-lg btn-block" />
-            </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3 form-group">
+                        <input type="submit" value="@(GetDictionaryValue("[ezSearch] Search", "Search"))" class="btn btn-primary btn-lg btn-block"/>
+                    </div>
 
+                </div>
+
+                <input type="hidden" name="department" value="sales">
+                <!-- Default Order: Newest Properties First -->
+                <input type="hidden" name="orderby" value="price-low">
+
+            </form>
         </div>
+        <div role="tabpanel" class="tab-pane" id="lettings">
+            <form action="" method="get" class="property-search-form ezsearch-form">
+                <div class="row">
+                    @*Lettings *@
+                    <div class="3u 12u(mobile) form-group select">
+                        <select name="Location" class="form-control selectpicker" data-none-selected-text="Any Location">
+                            <option value="any">Any Location</option>
+                            <option value="1">
+                                Wisbech
+                            </option>
+                            <option value="2">
+                                Benwick
+                            </option>
+                            <option value="4">
+                                Doddington
+                            </option>
+                            <option value="5">
+                                March
+                            </option>
+                            <option value="7">
+                                Chatteris
+                            </option>
+                            <option value="9">
+                                Ramsey
+                            </option>
+                            <option value="31">
+                                Ely
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3 form-group select">
+                        <select name="MinBedrooms" class="form-control selectpicker">
+                            <option value="0">No Min Beds</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3 form-group dropdown-double">
+                        <select name="MinPrice" class="selectpicker">
+                            <option value="0">Min Price</option>
+                            <option value="50">&pound;50</option>
+                            <option value="100">&pound;£100</option>
+                            <option value="200">&pound;200</option>
+                            <option value="300">£300</option>
+                            <option value="400">£400</option>
+                            <option value="500">£500</option>
+                            <option value="600">£600</option>
+                            <option value="700">£700</option>
+                            <option value="800">£800</option>
+                            <option value="900">£900</option>
+                            <option value="1000">£1,000</option>
+                            <option value="1250">£1,250</option>
+                            <option value="1500">£1,500</option>
+                            <option value="1750">£1,750</option>
+                            <option value="2000">£2,000</option>
+                            <option value="2250">£2,250</option>
+                            <option value="2500">£2,500</option>
+                            <option value="2750">£2,750</option>
+                            <option value="3000">£3,000</option>
+                            <option value="3500">£3,500</option>
+                            <option value="4000">£4,000</option>
+                            <option value="5000">£5,000</option>
+                            <option value="7500">£7,500</option>
+                            <option value="10000">£10,000</option>
+                        </select>
 
-        <!-- Default Order: Newest Properties First -->
-        <input type="hidden" name="orderby" value="price-low">
+                        <div class="search-form divider">to</div>
 
-    </form>
+                        <select name="MaxPrice" class="selectpicker">
+                            <option value="0">Max Price</option>
+                            <option value="50000">£50,000</option>
+                            <option value="60000">£60,000</option>
+                            <option value="70000">£70,000</option>
+                            <option value="80000">£80,000</option>
+                            <option value="90000">£90,000</option>
+                            <option value="100000">£100,000</option>
+                            <option value="110000">£110,000</option>
+                            <option value="120000">£120,000</option>
+                            <option value="125000">£125,000</option>
+                            <option value="130000">£130,000</option>
+                            <option value="140000">&pound;140,000</option>
+                            <option value="150000">&pound;150,000</option>
+                            <option value="160000">&pound;160,000</option>
+                            <option value="170000">&pound;170,000</option>
+                            <option value="175000">&pound;175,000</option>
+                            <option value="180000">&pound;180,000</option>
+                            <option value="190000">&pound;190,000</option>
+                            <option value="200000">&pound;200,000</option>
+                            <option value="210000">&pound;210,000</option>
+                            <option value="220000">&pound;220,000</option>
+                            <option value="230000">&pound;230,000</option>
+                            <option value="240000">&pound;240,000</option>
+                            <option value="250000">&pound;250,000</option>
+                            <option value="260000">&pound;260,000</option>
+                            <option value="270000">&pound;270,000</option>
+                            <option value="280000">&pound;280,000</option>
+                            <option value="290000">&pound;290,000</option>
+                            <option value="300000">&pound;300,000</option>
+                            <option value="325000">&pound;325,000</option>
+                            <option value="350000">&pound;350,000</option>
+                            <option value="375000">&pound;375,000</option>
+                            <option value="400000">&pound;400,000</option>
+                            <option value="425000">&pound;425,000</option>
+                            <option value="450000">&pound;450,000</option>
+                            <option value="475000">&pound;475,000</option>
+                            <option value="500000">&pound;500,000</option>
+                            <option value="550000">&pound;550,000</option>
+                            <option value="600000">&pound;600,000</option>
+                            <option value="650000">&pound;650,000</option>
+                            <option value="700000">&pound;700,000</option>
+                            <option value="800000">&pound;800,000</option>
+                            <option value="900000">&pound;900,000</option>
+                            <option value="1000000">&pound;1,000,000</option>
+                            <option value="1250000">&pound;1,250,000</option>
+                            <option value="1500000">&pound;1,500,000</option>
+                            <option value="1750000">&pound;1,750,000</option>
+                            <option value="2000000">&pound;2,000,000</option>
+                            <option value="2500000">&pound;2,500,000</option>
+                            <option value="3000000">&pound;3,000,000</option>
+                            <option value="4000000">&pound;4,000,000</option>
+                            <option value="5000000">&pound;5,000,000</option>
+                            <option value="7500000">&pound;7,500,000</option>
+                            <option value="10000000">&pound;10,000,000</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3 form-group">
+                        <input type="submit" value="@(GetDictionaryValue("[ezSearch] Search", "Search"))" class="btn btn-primary btn-lg btn-block" />
+                    </div>
+
+                </div>
+
+                <input type="hidden" name="department" value="lettings">
+                <!-- Default Order: Newest Properties First -->
+                <input type="hidden" name="orderby" value="price-low">
+
+            </form>
+        </div>
+    </div>
 
     @*<form action="" method="GET" class="ezsearch-form">
         <input type="text" name="q" placeholder="@(GetDictionaryValue("[ezSearch] Search", "Search"))" value="@(model.SearchTerm)" />
@@ -442,6 +605,8 @@
                 <img src="@imagesCollection.Url" alt="@imagesCollection.Name" class="img-responsive" />
             </div>
             <div class="property_meta">
+                <span><i class="fa fa-bed"></i>@result.GetPropertyValue("department")</span>
+                <span><i class="fa fa-bed"></i>@result.GetPropertyValue("propertyBedrooms")</span>
                 @foreach (var field in model.PreviewFields.Where(field => result.HasValue(field)))
                 {
                     <p>@Highlight(Truncate(Umbraco.StripHtml(result.GetPropertyValue(field).ToString()), model.PreviewLength), model.SearchTerms.Values)</p>
@@ -625,6 +790,7 @@
         // Query Parameters
         public string SearchTerm { get; set; }
         public Dictionary<string, string> SearchTerms { get; set; }
+        public string Department { get; set; }
         //public IEnumerable<string> SearchTerms { get; set; }
         public Coordinate Coordinates { get; set; }
         public int CurrentPage { get; set; }
