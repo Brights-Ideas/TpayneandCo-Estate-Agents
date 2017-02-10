@@ -208,17 +208,20 @@
 
 @helper RenderForm(SearchViewModel model)
 {
-    
-    
-        var CssClass = model.Department == "sales" ? model.Department : "lettings";
-    
+    if (string.IsNullOrEmpty(model.Department))
+    {
+        model.Department = "sales";
+    }
+
+    var cssClassSales = model.Department == "sales" ? "active" : "";
+    var cssClassLettings = model.Department == "lettings" ? "active" : "";
 
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#sales" aria-controls="sales" role="tab" data-toggle="tab">Sales</a></li>
-        <li role="presentation"><a href="#lettings" aria-controls="lettings" role="tab" data-toggle="tab">Lettings</a></li>
+        <li role="presentation" class="@cssClassSales"><a href="#sales" aria-controls="sales" role="tab" data-toggle="tab">Sales</a></li>
+        <li role="presentation" class="@cssClassLettings"><a href="#lettings" aria-controls="lettings" role="tab" data-toggle="tab">Lettings</a></li>
     </ul>
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="sales">
+        <div role="tabpanel" class="tab-pane @cssClassSales" id="sales">
             <form action="" method="get" class="property-search-form ezsearch-form">
                 <div class="row">
                     @*Residential Sales *@
@@ -320,16 +323,16 @@
 
                         <select name="MaxPrice" class="selectpicker">
                             <option value="0">Max Price</option>
-                            <option value="50000">£50,000</option>
-                            <option value="60000">£60,000</option>
-                            <option value="70000">£70,000</option>
-                            <option value="80000">£80,000</option>
-                            <option value="90000">£90,000</option>
-                            <option value="100000">£100,000</option>
-                            <option value="110000">£110,000</option>
-                            <option value="120000">£120,000</option>
-                            <option value="125000">£125,000</option>
-                            <option value="130000">£130,000</option>
+                            <option value="50000">&pound;50,000</option>
+                            <option value="60000">&pound;60,000</option>
+                            <option value="70000">&pound;70,000</option>
+                            <option value="80000">&pound;80,000</option>
+                            <option value="90000">&pound;90,000</option>
+                            <option value="100000">&pound;100,000</option>
+                            <option value="110000">&pound;110,000</option>
+                            <option value="120000">&pound;120,000</option>
+                            <option value="125000">&pound;125,000</option>
+                            <option value="130000">&pound;130,000</option>
                             <option value="140000">&pound;140,000</option>
                             <option value="150000">&pound;150,000</option>
                             <option value="160000">&pound;160,000</option>
@@ -401,7 +404,7 @@
 
             </form>
         </div>
-        <div role="tabpanel" class="tab-pane" id="lettings">
+        <div role="tabpanel" class="tab-pane @cssClassLettings" id="lettings">
             <form action="" method="get" class="property-search-form ezsearch-form">
                 <div class="row">
                     @*Lettings *@
@@ -445,45 +448,45 @@
                         <select name="MinPrice" class="selectpicker">
                             <option value="0">Min Price</option>
                             <option value="50">&pound;50</option>
-                            <option value="100">&pound;£100</option>
+                            <option value="100">&pound;100</option>
                             <option value="200">&pound;200</option>
-                            <option value="300">£300</option>
-                            <option value="400">£400</option>
-                            <option value="500">£500</option>
-                            <option value="600">£600</option>
-                            <option value="700">£700</option>
-                            <option value="800">£800</option>
-                            <option value="900">£900</option>
-                            <option value="1000">£1,000</option>
-                            <option value="1250">£1,250</option>
-                            <option value="1500">£1,500</option>
-                            <option value="1750">£1,750</option>
-                            <option value="2000">£2,000</option>
-                            <option value="2250">£2,250</option>
-                            <option value="2500">£2,500</option>
-                            <option value="2750">£2,750</option>
-                            <option value="3000">£3,000</option>
-                            <option value="3500">£3,500</option>
-                            <option value="4000">£4,000</option>
-                            <option value="5000">£5,000</option>
-                            <option value="7500">£7,500</option>
-                            <option value="10000">£10,000</option>
+                            <option value="300">&pound;300</option>
+                            <option value="400">&pound;400</option>
+                            <option value="500">&pound;500</option>
+                            <option value="600">&pound;600</option>
+                            <option value="700">&pound;700</option>
+                            <option value="800">&pound;800</option>
+                            <option value="900">&pound;900</option>
+                            <option value="1000">&pound;1,000</option>
+                            <option value="1250">&pound;1,250</option>
+                            <option value="1500">&pound;1,500</option>
+                            <option value="1750">&pound;1,750</option>
+                            <option value="2000">&pound;2,000</option>
+                            <option value="2250">&pound;2,250</option>
+                            <option value="2500">&pound;2,500</option>
+                            <option value="2750">&pound;2,750</option>
+                            <option value="3000">&pound;3,000</option>
+                            <option value="3500">&pound;3,500</option>
+                            <option value="4000">&pound;4,000</option>
+                            <option value="5000">&pound;5,000</option>
+                            <option value="7500">&pound;7,500</option>
+                            <option value="10000">&pound;10,000</option>
                         </select>
 
                         <div class="search-form divider">to</div>
 
                         <select name="MaxPrice" class="selectpicker">
                             <option value="0">Max Price</option>
-                            <option value="50000">£50,000</option>
-                            <option value="60000">£60,000</option>
-                            <option value="70000">£70,000</option>
-                            <option value="80000">£80,000</option>
-                            <option value="90000">£90,000</option>
-                            <option value="100000">£100,000</option>
-                            <option value="110000">£110,000</option>
-                            <option value="120000">£120,000</option>
-                            <option value="125000">£125,000</option>
-                            <option value="130000">£130,000</option>
+                            <option value="50000">&pound;50,000</option>
+                            <option value="60000">&pound;60,000</option>
+                            <option value="70000">&pound;70,000</option>
+                            <option value="80000">&pound;80,000</option>
+                            <option value="90000">&pound;90,000</option>
+                            <option value="100000">&pound;100,000</option>
+                            <option value="110000">&pound;110,000</option>
+                            <option value="120000">&pound;120,000</option>
+                            <option value="125000">&pound;125,000</option>
+                            <option value="130000">&pound;130,000</option>
                             <option value="140000">&pound;140,000</option>
                             <option value="150000">&pound;150,000</option>
                             <option value="160000">&pound;160,000</option>
