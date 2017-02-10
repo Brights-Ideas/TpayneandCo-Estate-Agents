@@ -404,6 +404,7 @@
     <Content Include="css\images\icons-special.png" />
     <Content Include="css\images\overlay.png" />
     <Content Include="css\main.css" />
+    <Content Include="css\owl.carousel.css" />
     <Content Include="css\skel-noscript.css" />
     <Content Include="css\style-1000px.css" />
     <Content Include="css\style-desktop.css" />

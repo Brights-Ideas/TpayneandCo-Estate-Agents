@@ -8,18 +8,14 @@
 }
 
 <!-- Contact -->
-<section>
-    <h2 class="major"><span>Get in touch</span></h2>
-    <ul class="contact">
-        @RenderLinkIfNotEmpty(homePage.FacebookLink, "facebook", "Facebook")
-        @RenderLinkIfNotEmpty(homePage.TwitterLink, "twitter", "Twitter")
-        @RenderLinkIfNotEmpty(homePage.RssLink, "rss", "RSS")
-        @RenderLinkIfNotEmpty(homePage.DribbbleLink, "dribbble", "Dribbble")
-        @RenderLinkIfNotEmpty(homePage.LinkedinLink, "linkedin", "Linked In")
-        @RenderLinkIfNotEmpty(homePage.GoogleLink, "googleplus", "Google+")
-    </ul>
-</section>
-<!-- /Contact -->
+<ul class="socials">
+	@RenderLinkIfNotEmpty(homePage.FacebookLink, "facebook", "Facebook")
+	@RenderLinkIfNotEmpty(homePage.TwitterLink, "twitter", "Twitter")
+	@RenderLinkIfNotEmpty(homePage.RssLink, "rss", "RSS")
+	@RenderLinkIfNotEmpty(homePage.DribbbleLink, "dribbble", "Dribbble")
+	@RenderLinkIfNotEmpty(homePage.LinkedinLink, "linkedin", "Linked In")
+	@RenderLinkIfNotEmpty(homePage.GoogleLink, "googleplus", "Google+")
+</ul>
 
 @helper RenderLinkIfNotEmpty(dynamic link, string cssClass, string linkName)
 {
@@ -29,6 +25,6 @@
     
     if (string.IsNullOrEmpty(link) == false)
     {
-        <li><a href="@link" class="@cssClass">@linkName</a></li>
+        <li><a href="@link" class="@cssClass"><i class="fa fa-@cssClass"></i></a></li>
     }
 }

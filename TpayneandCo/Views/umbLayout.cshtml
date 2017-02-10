@@ -24,7 +24,9 @@
         <link rel="stylesheet" href="/css/style-desktop.css" />
     </noscript>*@
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/bootstrap-select.css" />
     <link rel="stylesheet" href="/css/owl.carousel.css" />
+	<link rel="stylesheet" href="/css/icon.css" />	
     <link rel="stylesheet" href="/css/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><script src="/js/html5shiv.js"></script><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
@@ -36,7 +38,8 @@
         <div id="header-bottom">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 hidden-xs hidden-sm"><a href="/"><img src="images/logo-white.png" alt="logo"></a>
+                    <div class="2u hidden-xs hidden-sm">
+						<a href="/"><img src="images/logo-white.png" alt="logo"></a>
                     </div>
                     <div class="col-md-10 col-sm-12 col-xs-12">
                         <div class="get-tuch text-left top20">
@@ -50,7 +53,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="get-tech-line top20"><img src="images/get-tuch-line.png" alt="line">
+						<div class="get-tech-line top20">
+							<img src="images/get-tuch-line.png" alt="line">
                         </div>
                         <div class="get-tuch text-left top20">
                             <i class="icon-icons74"></i>
@@ -63,7 +67,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="get-tech-line top20"><img src="images/get-tuch-line.png" alt="line">
+                        <div class="get-tech-line top20">
+							<img src="images/get-tuch-line.png" alt="line">
                         </div>
                         <div class="get-tuch text-left top20">
                             <i class="icon-icons142"></i>
@@ -101,11 +106,6 @@
     <footer id="footer" class="container">
         <div class="row">
             <div class="12u">
-                @{ Html.RenderPartial("umbAbout"); }
-            </div>
-        </div>
-        <div class="row">
-            <div class="12u">
                 @{ Html.RenderPartial("umbSocial"); }
             </div>
         </div>
@@ -118,8 +118,10 @@
         </div>
     </footer>
     <!-- /Footer -->
-
-<script src="/scripts/owl.carousel.min.js"></script>
-<script src="/scripts/bootstrap.min.js"></script>
+	<!-- Scripts -->
+	<script src="/scripts/owl.carousel.min.js"></script>
+	<script src="/scripts/bootstrap.min.js"></script>
+	<script src="/scripts/bootstrap-select.js"></script>
+	<script src="/scripts/nav.js"></script>
 </body>
 </html>
