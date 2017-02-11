@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "55111bf6d051410b")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f5f2b42ea76e8f26")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -952,6 +952,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Rent: The rent of the property in pounds
+		///</summary>
+		[ImplementPropertyType("rent")]
+		public string Rent
+		{
+			get { return this.GetPropertyValue<string>("rent"); }
+		}
+
+		///<summary>
+		/// Rent Frequency: The rent frequency of the property such as Per Calendar Month 1 = pcm 2 = pw 3 = pa
+		///</summary>
+		[ImplementPropertyType("rentFrequency")]
+		public int RentFrequency
+		{
+			get { return this.GetPropertyValue<int>("rentFrequency"); }
+		}
+
+		///<summary>
 		/// Sale By: Indicates type of sale on the property. It is a numeric value which corresponds to the lookups below.  0 = Not Specified 1 = Private Treaty 2 = By Auction 3 = Confidential 4 = By Tender 5 = Offers Invited
 		///</summary>
 		[ImplementPropertyType("saleBy")]
@@ -967,6 +985,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string TimeLastModified
 		{
 			get { return this.GetPropertyValue<string>("timeLastModified"); }
+		}
+
+		///<summary>
+		/// To Let POA: Rent on application flag. If set to 1 the rent should not be displayed to the public.  0 = Display Price 1 = Hide price
+		///</summary>
+		[ImplementPropertyType("toLetPOA")]
+		public int ToLetPoa
+		{
+			get { return this.GetPropertyValue<int>("toLetPOA"); }
 		}
 	}
 

@@ -2161,6 +2161,7 @@
 						display: block;
 						text-decoration: none;
 						color: #6b7770;
+                        top: -3px;
 						border-bottom-left-radius: 6px;
 						border-bottom-right-radius: 6px;
 						outline: 0;

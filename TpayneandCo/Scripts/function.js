@@ -80,7 +80,7 @@ jQuery(function ($) {
 
 
   // ------- RANG Slider
-  $(".selectbox").selectbox();
+  /*$(".selectbox").selectbox();
   $(".nstSlider").nstSlider({
     "left_grip_selector": ".leftGrip",
     "right_grip_selector": ".rightGrip",
@@ -89,16 +89,16 @@ jQuery(function ($) {
       $(this).parent().find(".leftLabel").text(leftValue);
       $(this).parent().find(".rightLabel").text(rightValue);
     }
-  });
+  });*/
 
 
   // -------  FANCY BOX -------                 
-  $(".fancybox").fancybox({
+  /*$(".fancybox").fancybox({
     openEffect: 'elastic',
     openSpeed: 650,
     closeEffect: 'fade',
     closeClick: true,
-  });
+  });*/
 
 
   // -------  CHECK BOX ------- 
@@ -489,58 +489,4 @@ jQuery(function ($) {
   $(".info_section").parallax("50%", 0.01);
 
 
-});
-/* --------------------------------------------------------    
-Color picker - demo only
---------------------------------------------------------    */           
-(function() {
-    $('<div class="color-picker"><a href="#" class="handle"><i class="fa fa-cog"></i></a><div class="settings-header"><h3>Setting panel</h3></div><div class="section"><h4 class="color">Normal color schemes:</h4><div class="colors"><a href="#" class="color-1" ></a><a href="#" class="color-2" ></a><a href="#" class="color-3" ></a><a href="#" class="color-4" ></a><a href="#" class="color-5" ></a><a href="#" class="color-6" ></a><a href="#" class="color-7" ></a><a href="#" class="color-8" ></a></div></div></div>').appendTo($('body'));
-})();     
-
-
-/*Normal Color */
-$(".color-1" ).on("click", function(){
-    $("#color" ).attr("href", "css/color/color-1.css" );
-    return false;
-});
-$(".color-2" ).on("click", function(){
-    $("#color" ).attr("href", "css/color/color-2.css" );   
-    return false;
-});        
-$(".color-3" ).on("click", function(){
-    $("#color" ).attr("href", "css/color/color-3.css" );
-    return false;
-});
-$(".color-4" ).on("click", function(){
-    $("#color" ).attr("href", "css/color/color-4.css" );
-    return false;
-});
-$(".color-5" ).on("click", function(){
-    $("#color" ).attr("href", "css/color/color-5.css" );
-    return false;
-});
-$(".color-6" ).on("click", function(){
-    $("#color" ).attr("href", "css/color/color-6.css" );
-    return false;
-});
-$(".color-7" ).on("click", function(){
-    $("#color" ).attr("href", "css/color/color-7.css" );
-    return false;
-});
-$(".color-8" ).on("click", function(){
-    $("#color" ).attr("href", "css/color/color-8.css" );
-    return false;
-});
-
-$('.color-picker').animate({left: '-239px'});
-
-$('.color-picker a.handle').on("click", function(e){
-    e.preventDefault();
-    var div = $('.color-picker');
-    if (div.css('left') === '-239px') {
-        $('.color-picker').animate({left: '0px'}); 
-    } 
-    else {
-        $('.color-picker').animate({left: '-239px'});
-    }
 });

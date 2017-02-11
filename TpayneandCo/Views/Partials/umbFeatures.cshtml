@@ -6,29 +6,8 @@
     // First() gets the first ancestor found (the home page, on level 1)
     var homePage = CurrentPage.AncestorsOrSelf(1).First();
 }
-<!-- Features -->
-@*<section class="is-features">
-    <h2 class="major"><span>Wonderful featured pages</span></h2>
-    <div>
-        <div class="row">
-            @foreach (var feature in homePage.umbTextPages.Where("featuredPage"))
-            {
-                <div class="3u">
-                    <!-- Feature -->
-                    <section class="is-feature">
-                        <a href="@feature.Url" class="image image-full"><img src="@feature.Image" alt=""/></a>
-                        <h3><a href="@feature.Url">@feature.Name</a>
-                        </h3>
-                        @Umbraco.Truncate(feature.BodyText, 100)
-                    </section>
-                    <!-- /Feature -->
-                </div>
-            }
-        </div>
-    </div>
-</section>*@
+<!-- Features -->  
 <div id="property-2-slider" class="owl-carousel owl-theme">
-    @*<div class="owl-stage-outer">*@
         @*<div class="owl-stage" style="width: 3800px; left: 0; transform: translate3d(-1372px, 0px, 0px); transition: 0.25s;">*@
             @foreach (var feature in homePage.umbTextPages.Where("featuredPage"))
             {
@@ -72,17 +51,10 @@
                 </div>
 
             }
-            <!-- /Features -->
-        @*</div>*@
-    @*</div>*@
-    @*<div class="owl-nav">
-        <div class="owl-prev">prev</div>
-        <div class="owl-next">next</div>
-    </div>*@
-
 </div>
+<!-- /Features -->
 <script src="/scripts/owl.carousel.min.js"></script>
-<script>
+@*<script>
     $('.owl-carousel').owlCarousel({
         loop: true,
         autoWidth: true,
@@ -100,4 +72,4 @@
             }
         }
     })
-</script>
+</script>*@
