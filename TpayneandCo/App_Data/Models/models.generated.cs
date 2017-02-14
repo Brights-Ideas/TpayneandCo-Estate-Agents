@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f5f2b42ea76e8f26")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "82925b6369bbd2fd")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -727,6 +727,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Let Availbility: The availability of the property for example To Let and Let. 1 = On Hold 2 = To Let 3 = References Pending 4 = Let Agreed 5 = Let 6 = Withdrawn
+		///</summary>
+		[ImplementPropertyType("letAvailbility")]
+		public int LetAvailbility
+		{
+			get { return this.GetPropertyValue<int>("letAvailbility"); }
+		}
+
+		///<summary>
 		/// Longitude: Longitudinal co-ordinate of property
 		///</summary>
 		[ImplementPropertyType("longitude")]
@@ -976,6 +985,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public int SaleBy
 		{
 			get { return this.GetPropertyValue<int>("saleBy"); }
+		}
+
+		///<summary>
+		/// Student Property: Will be equal to ‘1’ this property has a let type of ‘Student’
+		///</summary>
+		[ImplementPropertyType("studentProperty")]
+		public bool StudentProperty
+		{
+			get { return this.GetPropertyValue<bool>("studentProperty"); }
 		}
 
 		///<summary>

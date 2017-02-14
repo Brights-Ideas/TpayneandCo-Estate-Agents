@@ -397,6 +397,9 @@
     <Content Include="css\bootstrap-select.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\icon.css" />
     <Content Include="css\ie7.css" />
     <Content Include="css\ie8.css" />
     <Content Include="css\ie9.css" />
