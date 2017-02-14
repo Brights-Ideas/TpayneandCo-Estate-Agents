@@ -336,4 +336,8 @@
     <add type="Umbraco.Web.Cache.UserPermissionsCacheRefresher, umbraco, Version=1.0.6233.15016, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Cache.UserTypeCacheRefresher, umbraco, Version=1.0.6233.15016, Culture=neutral, PublicKeyToken=null" />
   </baseType>
+  <baseType type="umbraco.cms.businesslogic.macro.IMacroEngine" resolutionType="FindAllTypes">
+    <add type="Umbraco.Web.Macros.PartialViewMacroEngine, umbraco, Version=1.0.6233.15016, Culture=neutral, PublicKeyToken=null" />
+    <add type="umbraco.MacroEngines.RazorMacroEngine, umbraco.MacroEngines, Version=1.0.6233.15019, Culture=neutral, PublicKeyToken=null" />
+  </baseType>
 </plugins>

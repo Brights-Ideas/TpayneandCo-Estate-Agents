@@ -583,7 +583,7 @@
             {
                 case UmbracoExamine.IndexTypes.Content:
                     var contentItem = Umbraco.TypedContent(result.Fields["id"]);
-                    @RenderContentResult(model, contentItem)
+                    @RenderSalesContentResult(model, contentItem)
                     break;
                 case UmbracoExamine.IndexTypes.Media:
                     var mediaItem = Umbraco.TypedMedia(result.Fields["id"]);
@@ -594,7 +594,35 @@
     </div>
 }
 
-@helper RenderContentResult(SearchViewModel model, IPublishedContent result)
+@helper RenderSalesContentResult(SearchViewModel model, IPublishedContent result)
+{
+    var mainImages = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).First();
+    var imagesCollection = Umbraco.TypedMedia(mainImages);
+    var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? result.GetPropertyValue("price") : result.GetPropertyValue("rent");
+
+    <div class="ezsearch-result col-md-4 col-sm-4">
+        <div class="property_item">
+            <div class="image">
+                <h2>
+                    <a href="@result.Url">@result.Name</a>
+                </h2>
+                <img src="@imagesCollection.Url" alt="@imagesCollection.Name" class="img-responsive" />
+            </div>
+            <div class="property_meta">
+                <span><i class="fa fa-bed"></i>@result.GetPropertyValue("department")</span>
+                <span><i class="fa fa-bed"></i>@result.GetPropertyValue("propertyBedrooms")</span>
+                <span>@propertyPrice</span>
+                @*@foreach (var field in model.PreviewFields.Where(field => result.HasValue(field)))
+                {
+                    <p>@Highlight(Truncate(Umbraco.StripHtml(result.GetPropertyValue(field).ToString()), model.PreviewLength), model.SearchTerms.Values)</p>
+                    break;
+                }*@
+            </div>
+        </div>
+    </div>
+}
+
+@helper RenderLettingsContentResult(SearchViewModel model, IPublishedContent result)
 {
     var mainImages = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).First();
     var imagesCollection = Umbraco.TypedMedia(mainImages);
@@ -610,11 +638,11 @@
             <div class="property_meta">
                 <span><i class="fa fa-bed"></i>@result.GetPropertyValue("department")</span>
                 <span><i class="fa fa-bed"></i>@result.GetPropertyValue("propertyBedrooms")</span>
-                @foreach (var field in model.PreviewFields.Where(field => result.HasValue(field)))
-                {
-                    <p>@Highlight(Truncate(Umbraco.StripHtml(result.GetPropertyValue(field).ToString()), model.PreviewLength), model.SearchTerms.Values)</p>
-                    break;
-                }
+                @*@foreach (var field in model.PreviewFields.Where(field => result.HasValue(field)))
+                    {
+                        <p>@Highlight(Truncate(Umbraco.StripHtml(result.GetPropertyValue(field).ToString()), model.PreviewLength), model.SearchTerms.Values)</p>
+                        break;
+                    }*@
             </div>
         </div>
     </div>
