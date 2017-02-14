@@ -596,9 +596,10 @@
 
 @helper RenderSalesContentResult(SearchViewModel model, IPublishedContent result)
 {
-    var mainImages = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).First();
-    var imagesCollection = Umbraco.TypedMedia(mainImages);
-    var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? result.GetPropertyValue("price") : result.GetPropertyValue("rent");
+    var images = result.GetPropertyValue<string>("images").Split(new string[] {","}, StringSplitOptions.RemoveEmptyEntries);
+    var mainImage = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).First();
+    var imagesCollection = Umbraco.TypedMedia(mainImage);
+    var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? result.GetPropertyValue("price") : result.GetPropertyValue("rent").ToDecimal();
 
     <div class="ezsearch-result col-md-4 col-sm-4">
         <div class="property_item">
@@ -609,15 +610,26 @@
                 <img src="@imagesCollection.Url" alt="@imagesCollection.Name" class="img-responsive" />
             </div>
             <div class="property_meta">
-                <span><i class="fa fa-bed"></i>@result.GetPropertyValue("department")</span>
+                <span><i class="fa fa-camera">@images.Count()</i></span>
+                @*<span><i class="fa fa-bed"></i>@result.GetPropertyValue("department")</span>*@
                 <span><i class="fa fa-bed"></i>@result.GetPropertyValue("propertyBedrooms")</span>
-                <span>@propertyPrice</span>
+                <span><i class="fa fa-bath"></i>@result.GetPropertyValue("propertyBathrooms")</span>
+                
+                <h4>@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice))</h4>
+                <br/>
+                <a href="@result.Url" class="button">More Info</a>
                 @*@foreach (var field in model.PreviewFields.Where(field => result.HasValue(field)))
                 {
                     <p>@Highlight(Truncate(Umbraco.StripHtml(result.GetPropertyValue(field).ToString()), model.PreviewLength), model.SearchTerms.Values)</p>
                     break;
                 }*@
             </div>
+            <div class="proerty_content">
+                <div class="proerty_text">
+                    <p>@Umbraco.Truncate(result.GetPropertyValue("mainSummary").ToString(), 122)</p>
+                </div>
+            </div>
+
         </div>
     </div>
 }

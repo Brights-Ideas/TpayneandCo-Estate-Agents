@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "82925b6369bbd2fd")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "545d3152d107d4e3")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -1012,6 +1012,50 @@ namespace Umbraco.Web.PublishedContentModels
 		public int ToLetPoa
 		{
 			get { return this.GetPropertyValue<int>("toLetPOA"); }
+		}
+	}
+
+	/// <summary>Property Details Lettings</summary>
+	[PublishedContentModel("umbPropertyDetailsLettings")]
+	public partial class UmbPropertyDetailsLettings : UmbMaster
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "umbPropertyDetailsLettings";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public UmbPropertyDetailsLettings(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UmbPropertyDetailsLettings, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Property ID
+		///</summary>
+		[ImplementPropertyType("propertyID")]
+		public string PropertyID
+		{
+			get { return this.GetPropertyValue<string>("propertyID"); }
+		}
+
+		///<summary>
+		/// Rent
+		///</summary>
+		[ImplementPropertyType("rent")]
+		public string Rent
+		{
+			get { return this.GetPropertyValue<string>("rent"); }
 		}
 	}
 

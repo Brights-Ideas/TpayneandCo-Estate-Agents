@@ -163,3 +163,490 @@ System.Web.HttpParseException (0x80004005): A space or line break was encountere
  2017-02-10 14:36:35,293 [P5744/D2/T29] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt succeeded for username abright2012@gmail.com from IP address ::1
  2017-02-10 14:36:35,293 [P5744/D2/T29] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: User: abright2012@gmail.com logged in from IP address ::1
  2017-02-10 15:46:52,843 [P5744/D2/T58] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: abright2012@gmail.com, IP Address: ::1
+ 2017-02-14 16:08:52,745 [P40332/D2/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.5.8 application starting on ICN-DEV03
+ 2017-02-14 16:08:52,775 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2017-02-14 16:08:52,788 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Hash determined (took 14ms)
+ 2017-02-14 16:08:52,856 [P40332/D2/T1] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2017-02-14 16:08:52,858 [P40332/D2/T1] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2017-02-14 16:08:52,867 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+ 2017-02-14 16:08:53,410 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 0 (took 542ms)
+ 2017-02-14 16:08:53,427 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2017-02-14 16:08:53,435 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 7ms)
+ 2017-02-14 16:08:53,435 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2017-02-14 16:08:53,445 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 0 (took 9ms)
+ 2017-02-14 16:08:53,462 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+ 2017-02-14 16:08:53,467 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 5ms)
+ 2017-02-14 16:08:53,468 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+ 2017-02-14 16:08:53,478 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 0 (took 9ms)
+ 2017-02-14 16:08:53,526 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+ 2017-02-14 16:08:53,533 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 0 (took 7ms)
+ 2017-02-14 16:08:53,534 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+ 2017-02-14 16:08:53,540 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 0 (took 6ms)
+ 2017-02-14 16:08:54,998 [P40332/D2/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2017-02-14 16:08:55,395 [P40332/D2/T1] INFO  Umbraco.Web.Cache.CacheRefresherEventHandler - Initializing Umbraco internal event handlers for cache refreshing
+ 2017-02-14 16:08:55,546 [P40332/D2/T1] INFO  Umbraco.Web.Search.ExamineEvents - Initializing Examine and binding to business logic events
+ 2017-02-14 16:08:55,548 [P40332/D2/T1] INFO  Umbraco.Web.Search.ExamineEvents - Adding examine event handlers for index providers: 3
+ 2017-02-14 16:08:55,624 [P40332/D2/T1] WARN  Umbraco.Core.Sync.DatabaseServerMessenger - No last synced Id found, this generally means this is a new server/install. The server will build its caches and indexes, and then adjust its last synced Id to the latest found in the database and maintain cache updates based on that Id.
+ 2017-02-14 16:08:55,690 [P40332/D2/T1] INFO  umbraco.content - Load Xml from file...
+ 2017-02-14 16:08:55,705 [P40332/D2/T1] INFO  umbraco.content - Loaded Xml from file.
+ 2017-02-14 16:08:55,714 [P40332/D2/T1] INFO  umbraco.content - Loading content from database...
+ 2017-02-14 16:08:56,595 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - Rebuilding index, Provider=InternalMemberIndexer, NodeId=-1
+ 2017-02-14 16:08:56,684 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - Start data queries - member, Provider=InternalMemberIndexer, NodeId=-1
+ 2017-02-14 16:08:56,968 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - End data queries - member, took 283ms, Provider=InternalMemberIndexer, NodeId=-1
+ 2017-02-14 16:08:56,968 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - Rebuilding index, Provider=InternalIndexer, NodeId=-1
+ 2017-02-14 16:08:57,014 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - Start data queries - content, Provider=InternalIndexer, NodeId=-1
+ 2017-02-14 16:08:57,744 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IParameterEditor
+ 2017-02-14 16:08:57,772 [P40332/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IParameterEditor, found 0 (took 26ms)
+ 2017-02-14 16:08:58,130 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - End data queries - content, took 1115ms, Provider=InternalIndexer, NodeId=-1
+ 2017-02-14 16:08:58,130 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - Start data queries - media, Provider=InternalIndexer, NodeId=-1
+ 2017-02-14 16:08:58,597 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - End data queries - media, took 467ms, Provider=InternalIndexer, NodeId=-1
+ 2017-02-14 16:08:58,597 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - Rebuilding index, Provider=ExternalIndexer, NodeId=-1
+ 2017-02-14 16:08:58,630 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - Start data queries - content, Provider=ExternalIndexer, NodeId=-1
+ 2017-02-14 16:08:58,912 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - End data queries - content, took 281ms, Provider=ExternalIndexer, NodeId=-1
+ 2017-02-14 16:08:58,912 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - Start data queries - media, Provider=ExternalIndexer, NodeId=-1
+ 2017-02-14 16:08:59,133 [P40332/D2/T1] INFO  UmbracoExamine.DataServices.UmbracoLogService - PerformIndexAll - End data queries - media, took 222ms, Provider=ExternalIndexer, NodeId=-1
+ 2017-02-14 16:08:59,188 [P40332/D2/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco application startup complete (took 6538ms)
+ 2017-02-14 16:08:59,410 [P40332/D2/T12] INFO  Umbraco.Core.Sync.ApplicationUrlHelper - ApplicationUrl: http://localhost:58219/umbraco (UmbracoModule request)
+ 2017-02-14 16:09:03,070 [P40332/D2/T13] INFO  umbraco.content - Save Xml to file...
+ 2017-02-14 16:09:03,139 [P40332/D2/T13] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-14 16:10:00,141 [P40332/D2/T19] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-02-13 16:10:00
+ 2017-02-14 16:10:00,251 [P40332/D2/T19] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+ 2017-02-14 16:10:00,265 [P40332/D2/T19] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 0 (took 14ms)
+ 2017-02-14 16:10:33,931 [P40332/D2/T20] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: Login attempt succeeded for username abright2012@gmail.com from IP address ::1
+ 2017-02-14 16:10:33,934 [P40332/D2/T20] INFO  Umbraco.Core.Security.BackOfficeSignInManager - Event Id: 0, state: User: abright2012@gmail.com logged in from IP address ::1
+ 2017-02-14 16:10:34,134 [P40332/D2/T20] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Trees.TreeController
+ 2017-02-14 16:10:34,141 [P40332/D2/T20] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Trees.TreeController, found 0 (took 7ms)
+ 2017-02-14 16:10:34,332 [P40332/D2/T20] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.IApplication
+ 2017-02-14 16:10:34,380 [P40332/D2/T20] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.IApplication, found 0 (took 47ms)
+ 2017-02-14 16:10:34,562 [P40332/D2/T22] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Trees.TreeController
+ 2017-02-14 16:10:34,564 [P40332/D2/T22] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Trees.TreeController, found 0 (took 1ms)
+ 2017-02-14 16:10:34,585 [P40332/D2/T22] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.ITree
+ 2017-02-14 16:10:34,602 [P40332/D2/T22] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.ITree, found 0 (took 17ms)
+ 2017-02-14 16:10:34,616 [P40332/D2/T20] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.ITree
+ 2017-02-14 16:10:34,641 [P40332/D2/T20] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.ITree, found 0 (took 25ms)
+ 2017-02-14 16:11:37,189 [P40332/D2/T23] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.ICacheRefresher
+ 2017-02-14 16:11:37,210 [P40332/D2/T23] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.ICacheRefresher, found 0 (took 20ms)
+ 2017-02-14 16:11:40,531 [P40332/D2/T20] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:11:46,954 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:11:46,954 [P40332/D2/T22] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:11:46,976 [P40332/D2/T18] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:11:47,031 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:11:47,066 [P40332/D2/T26] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:11:47,079 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:11:47,079 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:11:47,079 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:11:47,085 [P40332/D2/T25] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:11:47,090 [P40332/D2/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-14 16:11:47,090 [P40332/D2/T21] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-14 16:11:47,095 [P40332/D2/T24] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:11:47,096 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:11:47,130 [P40332/D2/T24] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:11:47,130 [P40332/D2/T24] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:11:47,130 [P40332/D2/T24] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:11:47,130 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:11:47,131 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:11:47,131 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:11:47,142 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:11:47,144 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:11:47,144 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:11:47,195 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:11:47,195 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:11:47,195 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:11:47,232 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:11:47,233 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:11:47,233 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:11:47,274 [P40332/D2/T26] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-14 16:11:47,274 [P40332/D2/T26] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-14 16:11:47,274 [P40332/D2/T26] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-14 16:11:47,274 [P40332/D2/T26] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-14 16:11:47,653 [P40332/D2/T28] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:11:47,653 [P40332/D2/T27] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:11:47,658 [P40332/D2/T25] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:12:04,003 [P40332/D2/T23] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Trees.TreeController
+ 2017-02-14 16:12:04,003 [P40332/D2/T23] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Trees.TreeController, found 0 (took 0ms)
+ 2017-02-14 16:12:09,592 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:12:09,624 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:12:09,628 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:12:09,648 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-14 16:12:09,648 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-14 16:12:09,696 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:12:09,715 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:12:09,734 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:12:09,744 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:12:09,762 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:12:09,769 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:12:09,769 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:12:09,770 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:12:09,779 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:12:09,779 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:12:09,779 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:12:09,790 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:12:09,790 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:12:09,790 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:12:09,823 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:12:09,823 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:12:09,823 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:12:09,827 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:12:09,827 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:12:09,827 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:12:09,837 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:12:09,837 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:12:09,837 [P40332/D2/T19] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:12:09,843 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-14 16:12:09,843 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-14 16:12:09,843 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-14 16:12:09,843 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-14 16:12:10,249 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:12:10,259 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:12:10,269 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:13:06,204 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:14:52,852 [P40332/D2/T14] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Editors.IEditorValidator
+ 2017-02-14 16:14:52,866 [P40332/D2/T14] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Editors.IEditorValidator, found 0 (took 13ms)
+ 2017-02-14 16:14:53,349 [P40332/D2/T14] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:15:14,198 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:15:14,208 [P40332/D2/T40] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:15:14,223 [P40332/D2/T39] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:15:14,370 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:15:14,370 [P40332/D2/T39] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field editor
+ 2017-02-14 16:15:14,378 [P40332/D2/T39] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field hideLabel
+ 2017-02-14 16:15:14,382 [P40332/D2/T18] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:15:14,421 [P40332/D2/T39] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:15:14,429 [P40332/D2/T42] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:15:14,439 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:15:14,440 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:15:14,442 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:15:14,474 [P40332/D2/T42] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:15:14,514 [P40332/D2/T40] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:15:14,514 [P40332/D2/T40] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:15:14,514 [P40332/D2/T40] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:15:14,554 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:15:14,554 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:15:14,554 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:15:14,605 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:15:14,605 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:15:14,605 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:15:14,620 [P40332/D2/T42] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:15:14,620 [P40332/D2/T42] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:15:14,620 [P40332/D2/T42] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:15:14,632 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field multiPicker
+ 2017-02-14 16:15:14,632 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field onlyImages
+ 2017-02-14 16:15:14,632 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field disableFolderSelect
+ 2017-02-14 16:15:14,632 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field startNodeId
+ 2017-02-14 16:15:14,645 [P40332/D2/T40] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field min
+ 2017-02-14 16:15:14,645 [P40332/D2/T40] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field step
+ 2017-02-14 16:15:14,645 [P40332/D2/T40] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field max
+ 2017-02-14 16:15:15,282 [P40332/D2/T39] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:15:15,310 [P40332/D2/T18] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:15:15,317 [P40332/D2/T41] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:15:22,774 [P40332/D2/T18] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field default
+ 2017-02-14 16:15:49,564 [P40332/D2/T15] WARN  Umbraco.Web.Models.Mapping.PreValueDisplayResolver - Could not find persisted pre-value for field values
+ 2017-02-14 16:17:24,728 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Sales Properties' with Id '1106' has been published.
+ 2017-02-14 16:17:28,867 [P40332/D2/T45] INFO  umbraco.content - Save Xml to file...
+ 2017-02-14 16:17:29,000 [P40332/D2/T45] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-14 16:17:48,631 [P40332/D2/T17] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Lettings Properties' with Id '0' has been published.
+ 2017-02-14 16:17:52,684 [P40332/D2/T32] INFO  umbraco.content - Save Xml to file...
+ 2017-02-14 16:17:52,764 [P40332/D2/T32] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-14 16:17:55,327 [P40332/D2/T46] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.HealthCheck.HealthCheck
+ 2017-02-14 16:17:55,351 [P40332/D2/T46] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.HealthCheck.HealthCheck, found 0 (took 24ms)
+ 2017-02-14 16:19:27,625 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Wilberforce Road, Wisbech, Cambs, PE132EU' with Id '2514' has been published.
+ 2017-02-14 16:19:27,753 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:28,139 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Elm Road, March, Cambs, PE15 8QS' with Id '2515' has been published.
+ 2017-02-14 16:19:28,234 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:28,696 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Mikanda Close, Wisbech, PE13 2TU' with Id '2521' has been published.
+ 2017-02-14 16:19:28,786 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:29,396 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'St. Pauls Drive, Chatteris, Cambs, PE16 6DG (1)' with Id '2522' has been published.
+ 2017-02-14 16:19:29,502 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:30,112 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Collingwood Avenue, March, Cambs, PE15 9EF' with Id '2523' has been published.
+ 2017-02-14 16:19:30,206 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:30,784 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Curlew Avenue, Chatteris, Cambs, PE16 6PL' with Id '2524' has been published.
+ 2017-02-14 16:19:30,916 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:31,656 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Doddington Road, Chatteris, Cambs, PE16 6UE' with Id '2525' has been published.
+ 2017-02-14 16:19:31,755 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:32,136 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Hereward Court, Chatteris, Cambs, PE16 6NZ' with Id '2526' has been published.
+ 2017-02-14 16:19:32,249 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:32,530 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Warboys, Huntingdon' with Id '2527' has been published.
+ 2017-02-14 16:19:32,628 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:33,027 [P40332/D2/T14] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Street, Chatteris, Cambs, PE16 6NB (1)' with Id '2531' has been published.
+ 2017-02-14 16:19:33,140 [P40332/D2/T14] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:19:33,154 [P40332/D2/T14] INFO  CMSImport.Extensions.Providers.ImportProviders.ImportProvider - CMSImport:Import task JUPIX Lettings Property Import finished, Records in datasource: 10, Records  Added 0, Records  Updated 10, Records skipped 0, Records deleted 0, Errors 0, duration 00:00:11 
+ 2017-02-14 16:19:37,124 [P40332/D2/T32] INFO  umbraco.content - Save Xml to file...
+ 2017-02-14 16:19:37,190 [P40332/D2/T32] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-14 16:20:42,682 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Chatteris, PE16 6NN' with Id '1122' has been published.
+ 2017-02-14 16:20:42,842 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:43,001 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Knights End Road, March, Cambs, PE15 0YL' with Id '1142' has been published.
+ 2017-02-14 16:20:43,099 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:43,275 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Upwell Road, March, Cambs, PE15 9DT' with Id '1146' has been published.
+ 2017-02-14 16:20:43,372 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:43,881 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Chatteris, PE16 6BE' with Id '1150' has been published.
+ 2017-02-14 16:20:43,991 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:44,712 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Wimblington Road, March PE15 9QN' with Id '1161' has been published.
+ 2017-02-14 16:20:44,849 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:45,249 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Orchard Road, March, Cambs, PE15 9DD' with Id '1177' has been published.
+ 2017-02-14 16:20:45,365 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:46,198 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Ravenscroft, Chatteris, Cambs, PE16 6NW' with Id '1185' has been published.
+ 2017-02-14 16:20:46,345 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:46,838 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'West Street, Chatteris, Cambs, PE16 6HP' with Id '1201' has been published.
+ 2017-02-14 16:20:46,952 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:47,510 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Chatteris, Cambs, PE16 6NN' with Id '1213' has been published.
+ 2017-02-14 16:20:47,623 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:48,300 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'St. Pauls Drive, Chatteris, PE16 6DG' with Id '1225' has been published.
+ 2017-02-14 16:20:48,416 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:49,140 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Road, Manea, March, Cambs, PE15 0JL' with Id '1239' has been published.
+ 2017-02-14 16:20:49,261 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:49,735 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'East Street, Manea, March, Cambs, PE15 0JJ' with Id '1255' has been published.
+ 2017-02-14 16:20:49,867 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:50,417 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Beech Grove, March, Cambs, PE15 8JS' with Id '1275' has been published.
+ 2017-02-14 16:20:50,532 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:51,055 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'London Road, Chatteris, Cambs, PE16 6LW' with Id '1287' has been published.
+ 2017-02-14 16:20:51,166 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:51,735 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'The Row, Sutton, Ely, Cambs, CB6 2PD' with Id '1299' has been published.
+ 2017-02-14 16:20:51,838 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:52,564 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Brickmakers Arms Lane, Doddington, March, Cambs, PE15 0TR' with Id '1312' has been published.
+ 2017-02-14 16:20:52,678 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:52,916 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'East Park Street, Chatteris, Cambs, PE16 6LA' with Id '1326' has been published.
+ 2017-02-14 16:20:53,017 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:53,856 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Briar Close, Chatteris, Cambs, PE16 6HS' with Id '1332' has been published.
+ 2017-02-14 16:20:53,992 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:54,440 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Rosemary Lane, Chatteris, Cambs, PE16 6EP' with Id '1352' has been published.
+ 2017-02-14 16:20:54,530 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:55,104 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Dahlia Close, March, Cambs, PE15 9TP' with Id '1362' has been published.
+ 2017-02-14 16:20:55,225 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:56,040 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Gull Way, Chatteris, Cambs, PE16 6DT' with Id '1375' has been published.
+ 2017-02-14 16:20:56,155 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:56,342 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Railway Lane, Chatteris, Cambs, PE16 6NF' with Id '1388' has been published.
+ 2017-02-14 16:20:56,460 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:57,225 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'St. Peters Road, March, Cambs, PE15 9NA' with Id '2436' has been published.
+ 2017-02-14 16:20:57,381 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:57,963 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Linden Drive, Chatteris, Cambs, PE16 6DZ' with Id '1392' has been published.
+ 2017-02-14 16:20:58,081 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:58,553 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Westbourne Road, Chatteris, Cambs, PE16 6HH' with Id '1405' has been published.
+ 2017-02-14 16:20:58,660 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:59,245 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'New Road, Chatteris, Cambs, PE16 6BT' with Id '1415' has been published.
+ 2017-02-14 16:20:59,338 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:20:59,771 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Willow Tree Close, Chatteris, Cambs, PE16 6FA' with Id '1428' has been published.
+ 2017-02-14 16:20:59,878 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:00,662 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'The Pastures, Chatteris, Cambs, PE16 6QS' with Id '1438' has been published.
+ 2017-02-14 16:21:00,774 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:01,043 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'New Road, Chatteris, Cambs, PE16 6DA' with Id '1454' has been published.
+ 2017-02-14 16:21:01,144 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:01,887 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Wheatfield Drive , Ramsey, Cambs, PE26 1SH' with Id '1460' has been published.
+ 2017-02-14 16:21:01,998 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:02,499 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'West Street, Chatteris, Cambs, PE16 6HP (1)' with Id '2451' has been published.
+ 2017-02-14 16:21:02,623 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:02,985 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Westfield Road, Manea, March, Cambs, PE15 0LS' with Id '1474' has been published.
+ 2017-02-14 16:21:03,098 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:03,671 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'North Brink, Wisbech, PE13 4UL' with Id '1482' has been published.
+ 2017-02-14 16:21:03,787 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:04,453 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Bridge Lane, Wimblington, March, PE15 0RS' with Id '1495' has been published.
+ 2017-02-14 16:21:04,564 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:04,984 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Fairbairn Way, Chatteris, Cambs, PE16 6GX' with Id '2459' has been published.
+ 2017-02-14 16:21:05,089 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:05,620 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Reed Close, Chatteris, Cambs, PE16 6PD' with Id '1509' has been published.
+ 2017-02-14 16:21:05,732 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:06,264 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Linden Drive, Chatteris, Cambs, PE16 6DZ (1)' with Id '1521' has been published.
+ 2017-02-14 16:21:06,419 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:07,153 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'York Road, Chatteris, PE16 6EB' with Id '1526' has been published.
+ 2017-02-14 16:21:07,293 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:07,832 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Chatteris, Cambs, PE16 6BG' with Id '1540' has been published.
+ 2017-02-14 16:21:07,936 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:08,560 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Willow Tree Close, Chatteris, Cambs, PE16 6FA (1)' with Id '1552' has been published.
+ 2017-02-14 16:21:08,674 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:09,180 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Benwick Road, Doddington, March, PE15 0TX' with Id '1563' has been published.
+ 2017-02-14 16:21:09,296 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:09,680 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Fen View, Chatteris, Cambs, PE16 6SY' with Id '1575' has been published.
+ 2017-02-14 16:21:09,799 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:10,585 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Wenny Road, Chatteris, Cambs, PE16 6UT' with Id '1584' has been published.
+ 2017-02-14 16:21:10,708 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:11,397 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Doddington Road, Wimblington, March, Cambs, PE15 0RD' with Id '1600' has been published.
+ 2017-02-14 16:21:11,493 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:11,891 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Fairbairn Way, Chatteris, PE16 6GX' with Id '1615' has been published.
+ 2017-02-14 16:21:12,013 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:12,301 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Southampton Place, Chatteris, Cambs, PE16 6LR' with Id '1623' has been published.
+ 2017-02-14 16:21:12,406 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:12,833 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'East Park Street, Chatteris, Cambs, PE16 6LD' with Id '1630' has been published.
+ 2017-02-14 16:21:12,940 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:13,549 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Gaunt Farm Drove, Gaunt Fen, Chatteris, Cambs, PE16 6TF' with Id '1639' has been published.
+ 2017-02-14 16:21:13,652 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:14,077 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'London Road, Chatteris, Cambs, PE16 6LS' with Id '1652' has been published.
+ 2017-02-14 16:21:14,177 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:14,798 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Street, Chatteris, Cambs, PE16 6EL' with Id '1661' has been published.
+ 2017-02-14 16:21:14,971 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:15,501 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Green Street, March, Cambs PE15 9DY' with Id '1673' has been published.
+ 2017-02-14 16:21:15,595 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:16,145 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Halsbury Court, Chatteris, PE16 6HB' with Id '1685' has been published.
+ 2017-02-14 16:21:16,245 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:16,389 [P40332/D2/T46] INFO  umbraco.content - Save Xml to file...
+ 2017-02-14 16:21:16,429 [P40332/D2/T46] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-14 16:21:16,597 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Plot 4, Mill Road, Murrow, Wisbech, PE13 4HF' with Id '1699' has been published.
+ 2017-02-14 16:21:16,696 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:17,037 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Plot 5, Mill Road, Murrow, Wisbech, PE13 4HF' with Id '1706' has been published.
+ 2017-02-14 16:21:17,150 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:17,998 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Doddington Road, Benwick, PE15 0UT' with Id '1713' has been published.
+ 2017-02-14 16:21:18,146 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:18,559 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Westway Place, Witcham, Ely, Cambs, CB26 2LG' with Id '1729' has been published.
+ 2017-02-14 16:21:18,651 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:19,061 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Bridge Street, Chatteris, Cambs, PE16 6RD' with Id '1738' has been published.
+ 2017-02-14 16:21:19,169 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:19,843 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'The Orchards, Chatteris, Cambs, PE16 6BX' with Id '1743' has been published.
+ 2017-02-14 16:21:19,951 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:20,541 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Queensway, Chatteris, Cambs, PE16 6DD' with Id '1758' has been published.
+ 2017-02-14 16:21:20,673 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:21,095 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'London Road, Chatteris, Cambs, PE16 6AS' with Id '1771' has been published.
+ 2017-02-14 16:21:21,211 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:21,747 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'The Elms, Chatteris, Cambs, PE16 6JN' with Id '1779' has been published.
+ 2017-02-14 16:21:21,857 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:22,235 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Old Station Place, Chatteris, Cambs, PE16 6BF' with Id '1791' has been published.
+ 2017-02-14 16:21:22,352 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:22,897 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Ellingham Gardens, Chatteris, Cambs, PE16 6WB' with Id '1800' has been published.
+ 2017-02-14 16:21:23,010 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:23,558 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Birch Avenue, Chatteris, Cambs, PE16 6JJ' with Id '1810' has been published.
+ 2017-02-14 16:21:23,680 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:24,323 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Southampton Place, Chatteris, Cambs, PE16 6LR (1)' with Id '1822' has been published.
+ 2017-02-14 16:21:24,419 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:25,138 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Tribune Close, Chatteris, PE16 6UY' with Id '1847' has been published.
+ 2017-02-14 16:21:25,244 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:26,113 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'School Lane, Manea, March, PE15 0JN' with Id '1873' has been published.
+ 2017-02-14 16:21:26,226 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:26,736 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'West Street, Chatteris, Cambs, PE16 6HA' with Id '1893' has been published.
+ 2017-02-14 16:21:26,861 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:27,612 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Ringers Lane, Leverington, Wisbech, PE13 5BQ' with Id '1903' has been published.
+ 2017-02-14 16:21:27,750 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:28,286 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Heronshaw, Chatteris, Cambs, PE16 6TR' with Id '1917' has been published.
+ 2017-02-14 16:21:28,407 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:28,836 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Bedford View, Manea, March, Cambs, PE15 0US' with Id '1926' has been published.
+ 2017-02-14 16:21:28,959 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:29,659 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Reed Close, Chatteris, Cambs, PE16 6PD (1)' with Id '1936' has been published.
+ 2017-02-14 16:21:29,768 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:30,493 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Manea, March, Cambs, PE15 0JA' with Id '1948' has been published.
+ 2017-02-14 16:21:30,636 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:31,440 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'The Shrubbery, Chatteris, PE16 6JE' with Id '1963' has been published.
+ 2017-02-14 16:21:31,556 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:32,005 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'The Birches, March, PE15 8DQ' with Id '1980' has been published.
+ 2017-02-14 16:21:32,099 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:32,714 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Doddington Road, Chatteris, PE16 6UA' with Id '1990' has been published.
+ 2017-02-14 16:21:32,832 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:33,544 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'River Close, Benwick, March, Cambs, PE15 0XZ' with Id '2004' has been published.
+ 2017-02-14 16:21:33,677 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:34,322 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Saddlers Way, Chatteris, Cambs, PE16 6BL' with Id '2018' has been published.
+ 2017-02-14 16:21:34,417 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:34,886 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Angoods Lane, Chatteris, Cambs, PE16 6RG' with Id '2030' has been published.
+ 2017-02-14 16:21:34,992 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:35,397 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Huntingdon Road, Chatteris, Cambs, PE16 6EA' with Id '2040' has been published.
+ 2017-02-14 16:21:35,493 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:35,711 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Linden Drive, Chatteris, PE16 6DZ' with Id '2048' has been published.
+ 2017-02-14 16:21:35,856 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:36,685 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Road, Manea, March, Cambs, PE15 0JL (1)' with Id '2053' has been published.
+ 2017-02-14 16:21:36,801 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:37,196 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Gull Road, Guyhirn, Wisbech, PE13 4ER' with Id '2068' has been published.
+ 2017-02-14 16:21:37,337 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:37,839 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Gull Road, Guyhirn, Wisbech, PE13 4ER (1)' with Id '2076' has been published.
+ 2017-02-14 16:21:38,038 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:38,488 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Gull Road, Guyhirn, Wisbech, PE13 4ER (2)' with Id '2083' has been published.
+ 2017-02-14 16:21:38,622 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:38,852 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Gull Road, Guyhirn, Wisbech, PE13 4LR' with Id '2088' has been published.
+ 2017-02-14 16:21:38,956 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:39,472 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Benwick, March, Cambs, PE15 0XA' with Id '2093' has been published.
+ 2017-02-14 16:21:39,577 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:39,989 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Road, Manea, March, Cambs, PE15 0HE' with Id '2104' has been published.
+ 2017-02-14 16:21:40,111 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:40,814 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Tribune Close, Chatteris, PE16 6UY (1)' with Id '2112' has been published.
+ 2017-02-14 16:21:40,906 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:41,233 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Farriers Gate, Chatteris, Cambs PE16 6AY' with Id '2125' has been published.
+ 2017-02-14 16:21:41,333 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:41,831 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Glebe Close, Manea, March, Cambs, PE15 0LR' with Id '2132' has been published.
+ 2017-02-14 16:21:41,967 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:42,681 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Larham Way, Chatteris, Cambs, PE16 6PH' with Id '2140' has been published.
+ 2017-02-14 16:21:42,820 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:43,351 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Main Road, Parson Drove, Wisbech, PE13 4LA' with Id '2156' has been published.
+ 2017-02-14 16:21:43,507 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:43,726 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Land On The West Side Of Sports Club, Off Robingoodfellows Lane, March' with Id '2167' has been published.
+ 2017-02-14 16:21:43,926 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:44,735 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Farriers Gate, Chatteris, Cambs, PE16 6AY' with Id '2171' has been published.
+ 2017-02-14 16:21:44,841 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:45,815 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Doddington Road, Chatteris, PE16 6UA (1)' with Id '2184' has been published.
+ 2017-02-14 16:21:45,913 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:46,544 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Gull Way, Chatteris, Cambs, PE16 6DT (1)' with Id '2201' has been published.
+ 2017-02-14 16:21:46,643 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:47,030 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Carpenters Way, Doddington, March, Cambs, PE15 0RZ' with Id '2210' has been published.
+ 2017-02-14 16:21:47,133 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:47,856 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'London Road, Chatteris, Cambs, PE16 6LW (1)' with Id '2219' has been published.
+ 2017-02-14 16:21:47,966 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:48,738 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'York Road, Chatteris, Cambs, PE16 6EB (1)' with Id '2230' has been published.
+ 2017-02-14 16:21:48,852 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:49,466 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Pond Close, Wimblington, March, PE15 0RL' with Id '2244' has been published.
+ 2017-02-14 16:21:49,556 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:50,355 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Street, Chatteris, Cambs, PE16 6EL (1)' with Id '2254' has been published.
+ 2017-02-14 16:21:50,459 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:50,624 [P40332/D2/T46] INFO  umbraco.content - Save Xml to file...
+ 2017-02-14 16:21:50,676 [P40332/D2/T46] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-14 16:21:50,870 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'New Park, March, Cambs, PE15 8RT' with Id '2269' has been published.
+ 2017-02-14 16:21:50,992 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:51,579 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Gipson Close, Chatteris, Cambs, PE16 6PQ' with Id '2277' has been published.
+ 2017-02-14 16:21:51,689 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:52,341 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'London Road, Chatteris, Cambs, PE16 6LW (2)' with Id '2290' has been published.
+ 2017-02-14 16:21:52,429 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:52,965 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'St. Pauls Drive, Chatteris, Cambs, PE16 6DG' with Id '2302' has been published.
+ 2017-02-14 16:21:53,142 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:53,624 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Jolley Close, Manea, March, Cambs, PE15 0BF' with Id '2472' has been published.
+ 2017-02-14 16:21:53,748 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:54,210 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Eastbourne Road, Chatteris, Cambs, PE16 6TE' with Id '2314' has been published.
+ 2017-02-14 16:21:54,331 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:55,324 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'St. Francis Drive, Chatteris, Cambs, PE16 6BS' with Id '2324' has been published.
+ 2017-02-14 16:21:55,435 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:57,201 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'The Junction, March, Cambs, PE15 8NY' with Id '2482' has been published.
+ 2017-02-14 16:21:57,307 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:57,806 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Newgate Street, Doddington, March, Cambs, PE15 0SR' with Id '2344' has been published.
+ 2017-02-14 16:21:57,912 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:21:58,497 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Farriers Gate, Chatteris, Cambs, PE16 6AY (1)' with Id '2354' has been published.
+ 2017-02-14 16:21:58,612 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:22:01,776 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Eaton Estate, Wimblington, March, Cambs PE15 0QE' with Id '2546' has been published.
+ 2017-02-14 16:22:01,884 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:22:02,349 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Plot 2, Mill Road, Murrow, PE13 4HF' with Id '2363' has been published.
+ 2017-02-14 16:22:02,474 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:22:03,218 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Millfield Close, Chatteris, Cambs, PE16 6SS' with Id '2489' has been published.
+ 2017-02-14 16:22:03,330 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:22:04,021 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'East Street, Manea, March, Cambs, PE15 0JJ (1)' with Id '2504' has been published.
+ 2017-02-14 16:22:04,163 [P40332/D2/T45] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:22:04,259 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Wilberforce Road, Wisbech, Cambs, PE132EU' with Id '2514' has been unpublished.
+ 2017-02-14 16:22:04,678 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Elm Road, March, Cambs, PE15 8QS' with Id '2515' has been unpublished.
+ 2017-02-14 16:22:05,082 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Street, Chatteris, Cambs, PE16 6NB' with Id '1833' has been unpublished.
+ 2017-02-14 16:22:05,368 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'York Road, Chatteris, Cambs, PE16 6EB' with Id '1862' has been unpublished.
+ 2017-02-14 16:22:05,606 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Mikanda Close, Wisbech, PE13 2TU' with Id '2521' has been unpublished.
+ 2017-02-14 16:22:05,881 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'St. Pauls Drive, Chatteris, Cambs, PE16 6DG (1)' with Id '2522' has been unpublished.
+ 2017-02-14 16:22:06,127 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Collingwood Avenue, March, Cambs, PE15 9EF' with Id '2523' has been unpublished.
+ 2017-02-14 16:22:06,472 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Curlew Avenue, Chatteris, Cambs, PE16 6PL' with Id '2524' has been unpublished.
+ 2017-02-14 16:22:06,720 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Doddington Road, Chatteris, Cambs, PE16 6UE' with Id '2525' has been unpublished.
+ 2017-02-14 16:22:07,006 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Hereward Court, Chatteris, Cambs, PE16 6NZ' with Id '2526' has been unpublished.
+ 2017-02-14 16:22:07,260 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Warboys, Huntingdon' with Id '2527' has been unpublished.
+ 2017-02-14 16:22:07,527 [P40332/D2/T45] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Street, Chatteris, Cambs, PE16 6NB (1)' with Id '2531' has been unpublished.
+ 2017-02-14 16:22:07,741 [P40332/D2/T45] INFO  CMSImport.Extensions.Providers.ImportProviders.ImportProvider - CMSImport:Import task JUPIX Sales Property Import finished, Records in datasource: 116, Records  Added 1, Records  Updated 115, Records skipped 0, Records deleted 12, Errors 0, duration 00:01:30 
+ 2017-02-14 16:22:11,588 [P40332/D2/T41] INFO  umbraco.content - Save Xml to file...
+ 2017-02-14 16:22:11,641 [P40332/D2/T41] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-14 16:23:19,366 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Wilberforce Road, Wisbech, Cambs, PE132EU' with Id '2557' has been published.
+ 2017-02-14 16:23:19,483 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:19,832 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Elm Road, March, Cambs, PE15 8QS' with Id '2558' has been published.
+ 2017-02-14 16:23:19,977 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:20,384 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Mikanda Close, Wisbech, PE13 2TU' with Id '2559' has been published.
+ 2017-02-14 16:23:20,507 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:20,877 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'St. Pauls Drive, Chatteris, Cambs, PE16 6DG' with Id '2560' has been published.
+ 2017-02-14 16:23:20,991 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:21,373 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Collingwood Avenue, March, Cambs, PE15 9EF' with Id '2561' has been published.
+ 2017-02-14 16:23:21,470 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:21,833 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Curlew Avenue, Chatteris, Cambs, PE16 6PL' with Id '2562' has been published.
+ 2017-02-14 16:23:21,941 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:22,367 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Doddington Road, Chatteris, Cambs, PE16 6UE' with Id '2563' has been published.
+ 2017-02-14 16:23:22,500 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:22,797 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Hereward Court, Chatteris, Cambs, PE16 6NZ' with Id '2564' has been published.
+ 2017-02-14 16:23:22,952 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:23,331 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'High Street, Warboys, Huntingdon' with Id '2565' has been published.
+ 2017-02-14 16:23:23,422 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:23,756 [P40332/D2/T18] INFO  Umbraco.Core.Publishing.PublishingStrategy - Content 'Station Street, Chatteris, Cambs, PE16 6NB' with Id '2566' has been published.
+ 2017-02-14 16:23:23,869 [P40332/D2/T18] INFO  Umbraco.Core.Services.ContentService - Call was made to ContentService.Publish, use PublishWithStatus instead since that method will provide more detailed information on the outcome
+ 2017-02-14 16:23:23,882 [P40332/D2/T18] INFO  CMSImport.Extensions.Providers.ImportProviders.ImportProvider - CMSImport:Import task JUPIX Lettings Property Import finished, Records in datasource: 10, Records  Added 10, Records  Updated 0, Records skipped 0, Records deleted 0, Errors 0, duration 00:00:09 
+ 2017-02-14 16:23:27,852 [P40332/D2/T18] INFO  umbraco.content - Save Xml to file...
+ 2017-02-14 16:23:27,918 [P40332/D2/T18] INFO  umbraco.content - Saved Xml to file.
+ 2017-02-14 16:28:51,129 [P40332/D2/T15] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IParameterEditor
+ 2017-02-14 16:28:51,129 [P40332/D2/T15] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IParameterEditor, found 0 (took 0ms)
+ 2017-02-14 16:28:51,160 [P40332/D2/T15] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.cms.businesslogic.macro.IMacroEngine
+ 2017-02-14 16:28:51,169 [P40332/D2/T15] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 0 (took 9ms)
+ 2017-02-14 16:50:08,198 [P40332/D2/T103] INFO  Umbraco.Core.Logging.OwinLogger - Event Id: 0, state: User logged will be logged out due to timeout: abright2012@gmail.com, IP Address: ::1
