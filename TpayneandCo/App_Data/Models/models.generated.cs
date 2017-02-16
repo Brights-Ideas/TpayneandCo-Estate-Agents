@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "545d3152d107d4e3")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "51d3eaf05cb61861")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -964,9 +964,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Rent: The rent of the property in pounds
 		///</summary>
 		[ImplementPropertyType("rent")]
-		public string Rent
+		public int Rent
 		{
-			get { return this.GetPropertyValue<string>("rent"); }
+			get { return this.GetPropertyValue<int>("rent"); }
 		}
 
 		///<summary>

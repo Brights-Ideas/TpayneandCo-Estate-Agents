@@ -57,26 +57,26 @@ jQuery(function ($) {
 
 
   // -------  SEARCH FORM DROPDOWNS
-  $(setup)
+  //$(setup)
 
-  function setup() {
-    $(".intro select").zelect({})
-  }
+  //function setup() {
+  //  $(".intro select").zelect({})
+  //}
 
 
   // -------  SKILLS BAR ------- 
-  $(".skills li").each(function () {
-    $(this).appear(function () {
-      $(this).animate({
-        opacity: 1,
-        left: "0px"
-      }, 800);
-      var b = jQuery(this).find(".progress-bar").attr("data-width");
-      $(this).find(".progress-bar").animate({
-        width: b + "%"
-      }, 1300, "linear");
-    });
-  });
+  //$(".skills li").each(function () {
+  //  $(this).appear(function () {
+  //    $(this).animate({
+  //      opacity: 1,
+  //      left: "0px"
+  //    }, 800);
+  //    var b = jQuery(this).find(".progress-bar").attr("data-width");
+  //    $(this).find(".progress-bar").animate({
+  //      width: b + "%"
+  //    }, 1300, "linear");
+  //  });
+  //});
 
 
   // ------- RANG Slider
@@ -356,137 +356,137 @@ jQuery(function ($) {
 
   // ------- Revolution -------
   //Main Slider Home 
-  var revapi = jQuery("#rev_slider_3").revolution({
-    sliderType: "standard",
-    sliderLayout: "fullwidth",
-    scrollbarDrag: "true",
-    spinner: "off",
-    delay: 3000,
-    navigation: {
-      arrows: {
-        enable: true
-      }
-    },
-    touch: {
-      touchenabled: "on",
-      swipe_threshold: 75,
-      swipe_min_touches: 1,
-      swipe_direction: "horizontal",
-      drag_block_vertical: false
-    },
-    responsiveLevels: [1240, 1024, 778, 480],
-    gridwidth: [1170, 992, 767, 480],
-    gridheight: [750, 650, 550, 400],
-  });
+  //var revapi = jQuery("#rev_slider_3").revolution({
+  //  sliderType: "standard",
+  //  sliderLayout: "fullwidth",
+  //  scrollbarDrag: "true",
+  //  spinner: "off",
+  //  delay: 3000,
+  //  navigation: {
+  //    arrows: {
+  //      enable: true
+  //    }
+  //  },
+  //  touch: {
+  //    touchenabled: "on",
+  //    swipe_threshold: 75,
+  //    swipe_min_touches: 1,
+  //    swipe_direction: "horizontal",
+  //    drag_block_vertical: false
+  //  },
+  //  responsiveLevels: [1240, 1024, 778, 480],
+  //  gridwidth: [1170, 992, 767, 480],
+  //  gridheight: [750, 650, 550, 400],
+  //});
 
 
   //Fullscreen
-  var revapi = jQuery("#rev_full").revolution({
-    sliderType: "standard",
-    scrollbarDrag: "true",
-    spinner: "off",
-    sliderLayout: "fullscreen",
-    delay: 3000,
-    navigation: {
-      arrows: {
-        enable: true
-      }
-    },
-    responsiveLevels: [4096, 1024, 778, 480],
-    gridwidth: [1170, 960, 750, 480],
-    gridheight: [720, 600, 500, 300],
-  });
+  //var revapi = jQuery("#rev_full").revolution({
+  //  sliderType: "standard",
+  //  scrollbarDrag: "true",
+  //  spinner: "off",
+  //  sliderLayout: "fullscreen",
+  //  delay: 3000,
+  //  navigation: {
+  //    arrows: {
+  //      enable: true
+  //    }
+  //  },
+  //  responsiveLevels: [4096, 1024, 778, 480],
+  //  gridwidth: [1170, 960, 750, 480],
+  //  gridheight: [720, 600, 500, 300],
+  //});
 
   //Video Background
-  var revapi = jQuery("#rev_video").revolution({
-    sliderType: "standard",
-    sliderLayout: "fullwidth",
-    delay: 9000,
-    spinner: "off",
-    navigation: {
-      arrows: {
-        enable: true
-      }
-    },
-    gridwidth: 1170,
-    gridheight: 700
-  });
+  //var revapi = jQuery("#rev_video").revolution({
+  //  sliderType: "standard",
+  //  sliderLayout: "fullwidth",
+  //  delay: 9000,
+  //  spinner: "off",
+  //  navigation: {
+  //    arrows: {
+  //      enable: true
+  //    }
+  //  },
+  //  gridwidth: 1170,
+  //  gridheight: 700
+  //});
 
 
   // ------- CUBEPORTFOLIO -------
   //PROJECT FILTER
-  $("#projects").cubeportfolio({
-    filters: "#project-filter",
-    layoutMode: "grid",
-    defaultFilter: "*",
-    animationType: "slideDelay",
-    gapHorizontal: 30,
-    gapVertical: 30,
-    gridAdjustment: "responsive",
-    lightboxDelegate: ".cbp-lightbox",
-    lightboxGallery: true,
-  });
+  //$("#projects").cubeportfolio({
+  //  filters: "#project-filter",
+  //  layoutMode: "grid",
+  //  defaultFilter: "*",
+  //  animationType: "slideDelay",
+  //  gapHorizontal: 30,
+  //  gapVertical: 30,
+  //  gridAdjustment: "responsive",
+  //  lightboxDelegate: ".cbp-lightbox",
+  //  lightboxGallery: true,
+  //});
   
   //with no space
-  $("#nospace").cubeportfolio({
-    filters: "#nospace-filter",
-    layoutMode: "grid",
-    defaultFilter: "*",
-    animationType: "slideDelay",
-    gapHorizontal: 0,
-    gapVertical: 0,
-    gridAdjustment: 'responsive',
-    mediaQueries: [{
-      width: 1500,
-      cols: 3
-    }, {
-      width: 1100,
-      cols: 3
-    }, {
-      width: 800,
-      cols: 3
-    }, {
-      width: 480,
-      cols: 2
-    }, {
-      width: 320,
-      cols: 1
-    }],
-    lightboxDelegate: ".cbp-lightbox",
-    lightboxGallery: true,
-  });
+  //$("#nospace").cubeportfolio({
+  //  filters: "#nospace-filter",
+  //  layoutMode: "grid",
+  //  defaultFilter: "*",
+  //  animationType: "slideDelay",
+  //  gapHorizontal: 0,
+  //  gapVertical: 0,
+  //  gridAdjustment: 'responsive',
+  //  mediaQueries: [{
+  //    width: 1500,
+  //    cols: 3
+  //  }, {
+  //    width: 1100,
+  //    cols: 3
+  //  }, {
+  //    width: 800,
+  //    cols: 3
+  //  }, {
+  //    width: 480,
+  //    cols: 2
+  //  }, {
+  //    width: 320,
+  //    cols: 1
+  //  }],
+  //  lightboxDelegate: ".cbp-lightbox",
+  //  lightboxGallery: true,
+  //});
 
   // (Testinomial Page)
-  $('#js-grid-masonry').cubeportfolio({
-    layoutMode: 'grid',
-    gapHorizontal: 50,
-    gapVertical: 20,
-    gridAdjustment: 'responsive',
-    mediaQueries: [{
-      width: 1500,
-      cols: 3
-    }, {
-      width: 1100,
-      cols: 3
-    }, {
-      width: 800,
-      cols: 3
-    }, {
-      width: 480,
-      cols: 2
-    }, {
-      width: 320,
-      cols: 1
-    }],
+  //$('#js-grid-masonry').cubeportfolio({
+  //  layoutMode: 'grid',
+  //  gapHorizontal: 50,
+  //  gapVertical: 20,
+  //  gridAdjustment: 'responsive',
+  //  mediaQueries: [{
+  //    width: 1500,
+  //    cols: 3
+  //  }, {
+  //    width: 1100,
+  //    cols: 3
+  //  }, {
+  //    width: 800,
+  //    cols: 3
+  //  }, {
+  //    width: 480,
+  //    cols: 2
+  //  }, {
+  //    width: 320,
+  //    cols: 1
+  //  }],
 
-  });
+  //});
 
 
   // ------- PARALLAX  -------
-  $("#image-text").parallax("50%", 0.02);
-  $(".page-main-section").parallax("50%", 0.02);
-  $("#estimate").parallax("50%", 0.01);
-  $(".info_section").parallax("50%", 0.01);
+  //$("#image-text").parallax("50%", 0.02);
+  //$(".page-main-section").parallax("50%", 0.02);
+  //$("#estimate").parallax("50%", 0.01);
+  //$(".info_section").parallax("50%", 0.01);
 
 
 });
