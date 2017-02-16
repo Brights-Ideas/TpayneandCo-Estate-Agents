@@ -105,14 +105,16 @@
         //        break;
         //}
 
-        if (model.Location != "")
+        var region = string.IsNullOrEmpty(model.Location) ? "any" : Request["Location"];
+
+        if (region != "any")
         {
             query.And().Field("regionID", model.Location);
         }
         else
         {
-            //SearchTerm = "Location=" + Request["Location"] + "&" + "MinPrice=" + Request["MinPrice"] + "&" + "MaxPrice=" + Request["MaxPrice"] + "&" + "department=" + Request["department"] + "&" + "orderBy=" + Request["orderby"],
-            model.SearchTerm = "Location=any&" + "MinPrice=0&" + "MaxPrice=0&" + "department=" + model.Department + "&" + "orderBy=" + model.SortOrder;
+            model.Department = string.IsNullOrEmpty(model.Department) ? "sales" : Request["department"];
+            model.SearchTerm = "Location=any&" + "MinPrice=0&" + "MaxPrice=0&" + "department=" + model.Department + "&" + "orderBy=price-low";
 
         }
 
