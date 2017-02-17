@@ -1172,6 +1172,29 @@
 		margin-bottom: 3em;
 	}
 
+/* Pagination */
+    .ezsearch-pager {
+        text-align: center;
+    }
+
+    .pagination>.active>a, 
+    .pagination>.active>span, 
+    .pagination>.active>a:hover, 
+    .pagination>.active>span:hover, 
+    .pagination>.active>a:focus, 
+    .pagination>.active>span:focus {
+        background-color: #ed6b25;
+        border-color: #428bca;
+    }
+
+    .pagination>li>a:hover, 
+    .pagination>li>span:hover, 
+    .pagination>li>a:focus, 
+    .pagination>li>span:focus {
+        color: #fff;
+        background-color: #4c4f49;
+    }
+
 /* Section/Article */
 
 	section, article {

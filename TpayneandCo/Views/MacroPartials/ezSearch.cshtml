@@ -120,7 +120,7 @@
 
         query.And().Field("department", model.Department);
 
-        if (model.MinPrice >= 0 && model.MaxPrice > 0)
+        if (model.MinPrice > 0 | model.MaxPrice > 0)
         {
             if (model.Department == "sales")
             {
@@ -130,8 +130,12 @@
             }
             else
             {
-                var higher = model.MaxPrice.ToString();
-                var lower = model.MinPrice.ToString();
+                var higher = model.MaxPrice.ToString("D");
+                var lower = model.MinPrice.ToString("D");
+                //IBooleanOperation Range(string fieldName, int start, int end);
+                //IBooleanOperation Range(string fieldName, int start, int end, bool includeLower, bool includeUpper);
+                //IBooleanOperation Range(string fieldName, string start, string end);
+                //IBooleanOperation Range(string fieldName, string start, string end, bool includeLower, bool includeUpper);
                 query.And().Range("rent", lower, higher, true, true);
             }
         }
@@ -241,11 +245,11 @@
 {
     if (string.IsNullOrEmpty(model.Department))
     {
-        model.Department = "Sales";
+        model.Department = "sales";
     }
 
-    var cssClassSales = model.Department == "Sales" ? "active" : "";
-    var cssClassLettings = model.Department == "Lettings" ? "active" : "";
+    var cssClassSales = model.Department == "sales" ? "active" : "";
+    var cssClassLettings = model.Department == "lettings" ? "active" : "";
 
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="@cssClassSales"><a href="#sales" aria-controls="sales" role="tab" data-toggle="tab">Sales</a></li>
@@ -429,7 +433,7 @@
 
                 </div>
 
-                <input type="hidden" name="department" value="Sales">
+                <input type="hidden" name="department" value="sales">
                 <!-- Default Order: Newest Properties First -->
                 <input type="hidden" name="orderby" value="price-low">
 
@@ -604,7 +608,7 @@
 @helper RenderResults(SearchViewModel model)
 {
 IEnumerable<SearchResult> sortOrder = model.PagedResults;
-if (model.Department == "Sales")
+if (model.Department == "sales")
 {
     switch (model.SortOrder)
     {
@@ -713,29 +717,40 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
 @helper RenderPager(SearchViewModel model)
 {
     <div class="ezsearch-pager">
-        <p>
-            @if (model.CurrentPage > 1) {
-                <a class="prev" href="?q=@(model.SearchTerm)&p=@(model.CurrentPage-1)">@(GetDictionaryValue("[ezSearch] Previous", "Previous"))</a>
-            } else {
-                <span class="prev">@(GetDictionaryValue("[ezSearch] Previous", "Previous"))</span>
-            }
-            
-            @for (var i = 1; i <= model.TotalPages; i++)
-            {
-                if(i == model.CurrentPage) {
-                    <span class="page">@i</span>
-                } else {
-                    <a class="page" href="?@(model.SearchTerm)&p=@(i)">@i</a>
+        <nav>
+            <ul class="pagination">
+                @if (model.CurrentPage > 1)
+                {
+                    <li><a class="prev" href="?@(model.SearchTerm)&p=@(model.CurrentPage-1)"><span aria-hidden="true">&laquo;</span></a></li>
                 }
-            }
+                else
+                {
+                    <li class="disabled"><span class="prev">@(GetDictionaryValue("[ezSearch] Previous", "Previous"))</span></li>
+                }
 
-            @if (model.CurrentPage < model.TotalPages) {
-                <a class="next" href="?@(model.SearchTerm)&p=@(model.CurrentPage + 1)">@(GetDictionaryValue("[ezSearch] Next", "Next"))</a>
-                @*<a class="next" href="?q=@(model.SearchTerm)&p=@(model.CurrentPage + 1)">@(GetDictionaryValue("[ezSearch] Next", "Next"))</a>*@
-            } else {
-                <span class="next">@(GetDictionaryValue("[ezSearch] Next", "Next"))</span>
-            }
-        </p>
+                @for (var i = 1; i <= model.TotalPages; i++)
+                {
+                    if (i == model.CurrentPage)
+                    {
+                        <li class="active"><span class="page">@i</span></li>
+                    }
+                    else
+                    {
+                        <li><a class="page" href="?@(model.SearchTerm)&p=@(i)">@i</a></li>
+                    }
+                }
+
+                @if (model.CurrentPage < model.TotalPages)
+                {
+                    <li><a class="next" href="?@(model.SearchTerm)&p=@(model.CurrentPage + 1)">@(GetDictionaryValue("[ezSearch] Next", "Next"))</a></li>
+                }
+                else
+                {
+                    <li><span class="next">@(GetDictionaryValue("[ezSearch] Next", "Next"))</span></li>
+                }
+            </ul>
+        </nav>
+
     </div>
 }
 

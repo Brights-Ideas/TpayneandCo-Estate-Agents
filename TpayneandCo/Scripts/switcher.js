@@ -52,8 +52,9 @@
 
         var currentUrl = window.location.href;
 
-        if (currentUrl.indexOf('?' + 'orderby' + '=') != -1) {
+        if (currentUrl.indexOf('?orderby=')) {
 
+            //url = url.slice(0, url.indexOf('&'));
             var parsedUrl = $.url(currentUrl);
             var currentOrder = url('?orderby', parsedUrl);
             //if (url.match("your string").length > 0) {
@@ -62,10 +63,10 @@
             var newUrl = location.href.replace("orderby=" + currentOrder, "orderby=" + newOrder);
             window.location.href = newUrl;
         }
-        else {
-            var params = { 'orderby': $(this).val() };
-            window.location.href = currentUrl + '?' + jQuery.param(params);
-        }
+        //else {
+        //    var params = { 'orderby': $(this).val() };
+        //    window.location.href = currentUrl + '?' + jQuery.param(params);
+        //}
 
     });
 
@@ -79,19 +80,15 @@
     var maxPrice = url('?MaxPrice', parsedUrl);
 
     $('.selectpicker').val(order);
-    //$('.selectpicker').selectpicker('render');
 
     $('[name="Location"]').val(region);
-    //$('[name="Location"]').selectpicker('render');
 
     $('[name="MinBedrooms"]').val(minBeds);
-    //$('[name="MinBedrooms"]').selectpicker('render');
 
     $('[name="MinPrice"]').val(minPrice);
-    //$('[name="MinPrice"]').selectpicker('render');
 
     $('[name="MaxPrice"]').val(maxPrice);
-    //$('[name="MaxPrice"]').selectpicker('render');
+    //
     $('.selectpicker').selectpicker('render');
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
