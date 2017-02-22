@@ -17,14 +17,27 @@
             <div class="9u 12u(mobile) important(mobile)">
 				<div class="content content-left">
 					<!-- Content -->
-					<article class="box page-content">
+					<article class="box post">
 						<header>
 							<h2>@pageTitle</h2>
                     		<p>@(String.Format(new CultureInfo("en-GB"), "{0:C}", CurrentPage.Price) )</p>
 						</header>
-						<section>
-							<span class="image featured"><img class="img-responsive" src="@imagesCollection.First().Url" alt=""></span>
-						</section>
+						
+							@*<span class="image featured"><img class="img-responsive" src="@imagesCollection.First().Url" alt=""></span>*@
+                            <div id="property-d-1" class="owl-carousel">
+                                @foreach (var image in imagesCollection)
+                                {
+                                    <img class="image featured img-responsive" src="@image.Url" alt="@image.Name">
+                                }
+                            </div>
+                            <div id="property-d-1-2" class="owl-carousel">
+                                @foreach (var image in imagesCollection)
+                                {
+                                    <div class="item">
+                                        <img class="img-responsive" src="@image.Url" alt="@image.Name">
+                                    </div>
+                                }
+                            </div>
 					</article>
 				</div>
             </div>
@@ -43,19 +56,6 @@
 					</section>
 				</div>
 			</div>
-        </div>
-        <div class="row">
-            <div class="12u">
-				<h2 class="major"><span><i class="fa fa-picture-o" aria-hidden="true"></i></span></h2>
-            </div>
-            @foreach (var image in imagesCollection)
-            {
-                <div class="3u 6u(mobile) image-set">
-                    <a href="@image.Url" class="example-image-link thumbnail" data-lightbox="example-set">
-                        <img class="example-image img-responsive portfolio-item" src="@image.Url" alt="@image.Name">
-                    </a>
-                </div>
-            }
         </div>
  		<div class="row">
             <div class="12u">
@@ -105,4 +105,22 @@
         </div>
     </div>
 </div>
-<script src="/scripts/lightbox.js"></script>
+@*<script src="/scripts/lightbox.js"></script>*@
+@*<script src="/scripts/owl.carousel.min.js"></script>
+<script>
+    var sync1 = $("#property-d-1");
+    //var sync2 = $("#property-d-1-2");
+    sync1.owlCarousel({
+        autoPlay: 3000,
+        singleItem: true,
+        slideSpeed: 1000,
+        navigation: true,
+        pagination: false,
+        navigationText: [
+          "<i class='fa fa-angle-left'></i>",
+          "<i class='fa fa-angle-right'></i>"
+        ],
+        //afterAction: syncPosition,
+        responsiveRefreshRate: 200,
+    });
+</script>*@

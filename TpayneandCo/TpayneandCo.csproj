@@ -465,6 +465,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\nav.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\switcher.js" />
@@ -509,6 +510,8 @@
     <Content Include="Views\Partials\umbSocial.cshtml" />
     <Content Include="Views\Partials\umbTopNavigation.cshtml" />
     <Content Include="Views\MacroPartials\ezSearch.cshtml" />
+    <Content Include="Views\PropertyDetails.cshtml" />
+    <Content Include="Views\PropertyOverview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
