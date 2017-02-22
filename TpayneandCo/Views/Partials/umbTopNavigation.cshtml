@@ -11,30 +11,36 @@
     var menuItems = homePage.Children.Where("UmbracoNaviHide == false");
 }
 <!-- Nav -->
-<nav id="nav" class="navbar navbar-default navbar-sticky bootsnav">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="social-icons text-right">
-					@{ Html.RenderPartial("umbSocial"); }
-                </div>   
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
-                    @* If the Url of the current page is "/" then we want to add the class "current_page_item" *@
-                    @* Otherwise, we set the class to null, that way it will not even be added to the <li> element *@
-                    <li class="@(CurrentPage.Url == "/" ? "current_page_item" : null)"><a href="/">Home</a></li>
+<nav id="nav">
+    <ul>
+        @* If the Url of the current page is "/" then we want to add the class "current_page_item" *@
+        @* Otherwise, we set the class to null, that way it will not even be added to the <li> element *@
+        <li class="@(CurrentPage.Url == "/" ? "current" : null)"><a href="/">Home</a></li>
 
-                    @foreach (var item in menuItems)
+        @foreach (var item in menuItems)
+        {
+            @* If the page has child nodes (2nd level) that are visible and docTypeAlias is Textpage (textpages) *@
+        if (item.umbTextPage.Where("UmbracoNaviHide == false").Count() > 0)
+        {
+            <li class="opener" style="user-select: none; cursor: pointer; white-space: nowrap; opacity: 1;">
+                <a href="@item.Url">@item.Name</a>
+
+                <ul class="" style="user-select: none; display: none; position: absolute;">
+                    @foreach (var childPage in item.Children.Where("UmbracoNaviHide == false"))
                     {
-                        @* If the Id of the item is the same as the Id of the current page then we want to add the class "current_page_item" *@
-                        @* Otherwise, we set the class to null, that way it will not even be added to the <li> element *@
-                        <li class="@(CurrentPage.Id == item.Id ? "current_page_item" : null)"><a href="@item.Url">@item.Name</a></li>
+                        <li><a href="@childPage.Url">@childPage.Name</a></li>
                     }
                 </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+            </li>
 
+        }
+        else
+        {
+            @* If the Id of the item is the same as the Id of the current page then we want to add the class "current_page_item" *@
+            @* Otherwise, we set the class to null, that way it will not even be added to the <li> element *@
+            <li class="@(CurrentPage.Id == item.Id ? "current" : null)"><a href="@item.Url">@item.Name</a></li>}
+        }
+
+    </ul>
 </nav>
 <!-- /Nav -->

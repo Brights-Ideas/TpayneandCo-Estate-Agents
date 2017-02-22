@@ -44,16 +44,21 @@
 			<div class="3u 12u(mobile)">
 				<div class="sidebar">
 					<!-- Sidebar -->
-					<section>
-						<h2 class="major"><span>Summary</span></h2>
-						<p>@CurrentPage.mainSummary</p>
-					</section>
-					<section>
-						<h2 class="major"><span>Details</span></h2>
-						<a target="_blank" class="btn button" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
-							<i class="fa fa-link"></i><span> Brochure</span>
-						</a>
-					</section>
+                    <section>
+                        <h2 class="major"><span>Summary</span></h2>
+                        <p>@CurrentPage.clientName</p>
+                        <p>@CurrentPage.branchName</p>
+
+                        <a href="tel:01354 696700">
+                            <strong>01354 696700</strong>
+                        </a>
+                    </section>
+                    <section>
+                        <h2 class="major"><span>Details</span></h2>
+                        <a target="_blank" class="btn button" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
+                            <i class="fa fa-link"></i><span> Brochure</span>
+                        </a>
+                    </section>
 				</div>
 			</div>
         </div>
@@ -80,10 +85,24 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="description">
+                                <h3>Key Features</h3>
+                                <ul class="divided">
+                                    <li>@CurrentPage.propertyFeature1</li>
+                                    <li>@CurrentPage.propertyFeature2</li>
+                                    <li>@CurrentPage.propertyFeature3</li>
+                                    <li>@CurrentPage.propertyFeature4</li>
+                                </ul>
+
+                                <h3>Full Description</h3>
                                 <p>
                                     @Html.Raw(CurrentPage.FullDescription)
                                 </p>
-
+                                <h3>Energy Performance Certificate (EPC)</h3>
+                                <p>
+                                    <a target="_blank" href="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())">
+                                        View EPC Graph for this property
+                                    </a>
+                                </p>
                             </div>
                             <div class="tab-pane" id="floorplan">
                                 <p>
