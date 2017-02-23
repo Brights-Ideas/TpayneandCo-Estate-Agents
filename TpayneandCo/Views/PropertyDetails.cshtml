@@ -17,48 +17,59 @@
             <div class="9u 12u(mobile) important(mobile)">
 				<div class="content content-left">
 					<!-- Content -->
-					<article class="box post">
+					<article class="box page-content">
 						<header>
 							<h2>@pageTitle</h2>
                     		<p>@(String.Format(new CultureInfo("en-GB"), "{0:C}", CurrentPage.Price) )</p>
+							@*<h2 class="text-right">£6,500,000</h2>*@
 						</header>
-						
-							@*<span class="image featured"><img class="img-responsive" src="@imagesCollection.First().Url" alt=""></span>*@
-                            <div id="property-d-1" class="owl-carousel">
-                                @foreach (var image in imagesCollection)
-                                {
-                                    <img class="image featured img-responsive" src="@image.Url" alt="@image.Name">
-                                }
-                            </div>
-                            <div id="property-d-1-2" class="owl-carousel">
-                                @foreach (var image in imagesCollection)
+						<section>
+						<div id="showcase-loader" style="display: none;"></div>
+							<div id="owl-demo">
+								@foreach (var image in imagesCollection)
                                 {
                                     <div class="item">
-                                        <img class="img-responsive" src="@image.Url" alt="@image.Name">
+                                        <img class="img-responsive" src="@image.Url" alt="@image.Name" height="400px" width="400px">
                                     </div>
                                 }
-                            </div>
+							</div>
+							<div id="owl-thumbnails" style="">
+								<div class="col-xs-1">
+									<div class="showcase-thumbnail-button-backward owl-prev" style="float: left;">
+										<span class="showcase-thumbnail-horizontal"><span>Left</span></span>
+									</div>
+								</div>
+								<div id="owl-gallery">
+									@foreach (var image in imagesCollection)
+									{
+										<a href="#" data-slide="0">
+											<img class="img-responsive portfolio-item" src="@image.Url" alt="@image.Name">
+										</a>
+									}
+								</div>
+							</div>
+						</section>
 					</article>
 				</div>
             </div>
 			<div class="3u 12u(mobile)">
 				<div class="sidebar">
 					<!-- Sidebar -->
-                    <section>
-                        <h2 class="major"><span>Summary</span></h2>
-                        <p>@CurrentPage.clientName</p>
-                        <p>@CurrentPage.branchName</p>
-
-                        <a href="tel:01354 696700">
-                            <strong>01354 696700</strong>
-                        </a>
-                    </section>
-                    <section>
-                        <h2 class="major"><span>Details</span></h2>
-                        <a target="_blank" class="btn button" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
-                            <i class="fa fa-link"></i><span> Brochure</span>
-                        </a>
-                    </section>
+					<section>
+						<h2 class="major"><span>Summary</span></h2>
+						<p>@CurrentPage.clientName</p>
+						<p>@CurrentPage.branchName</p>
+						
+						<a href="tel:01354 696700">
+							<strong>01354 696700</strong>
+						</a>
+					</section>
+					<section>
+						<h2 class="major"><span>Details</span></h2>
+						<a target="_blank" class="btn button" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
+							<i class="fa fa-link"></i><span> Brochure</span>
+						</a>
+					</section>
 				</div>
 			</div>
         </div>
@@ -77,43 +88,32 @@
                                     Floorplan
                                 </a>
                             </li>
-                            <li>
-                                <a href="#epc" data-toggle="tab">
-                                    EPC
-                                </a>
-                            </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="description">
-                                <h3>Key Features</h3>
-                                <ul class="divided">
-                                    <li>@CurrentPage.propertyFeature1</li>
-                                    <li>@CurrentPage.propertyFeature2</li>
-                                    <li>@CurrentPage.propertyFeature3</li>
-                                    <li>@CurrentPage.propertyFeature4</li>
-                                </ul>
-
-                                <h3>Full Description</h3>
-                                <p>
-                                    @Html.Raw(CurrentPage.FullDescription)
-                                </p>
-                                <h3>Energy Performance Certificate (EPC)</h3>
-                                <p>
+								<h3>Key Features</h3>
+								<ul>
+									<li>@CurrentPage.propertyFeature1</li>
+									<li>@CurrentPage.propertyFeature2</li>
+									<li>@CurrentPage.propertyFeature3</li>
+									<li>@CurrentPage.propertyFeature4</li>
+								</ul>
+								
+								<h3>Full Description</h3>
+								
+                                @Html.Raw(CurrentPage.FullDescription)
+									
+								<h3>Energy Performance Certificate (EPC)</h3>
+								<p>
                                     <a target="_blank" href="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())">
                                         View EPC Graph for this property
                                     </a>
                                 </p>
+								<img src="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())" />
                             </div>
                             <div class="tab-pane" id="floorplan">
                                 <p>
-                                    <img src="@Html.Raw(Model.Content.GetPropertyValue<string>("floorplans").StripHtml())" />
-                                </p>
-                            </div>
-                            <div class="tab-pane" id="epc">
-                                <p>
-                                    <a target="_blank" href="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())">
-                                        <img src="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())" />
-                                    </a>
+                                    <img class="img-responsive" src="@Html.Raw(Model.Content.GetPropertyValue<string>("floorplans").StripHtml())" />
                                 </p>
                             </div>
                         </div>
@@ -124,22 +124,3 @@
         </div>
     </div>
 </div>
-@*<script src="/scripts/lightbox.js"></script>*@
-@*<script src="/scripts/owl.carousel.min.js"></script>
-<script>
-    var sync1 = $("#property-d-1");
-    //var sync2 = $("#property-d-1-2");
-    sync1.owlCarousel({
-        autoPlay: 3000,
-        singleItem: true,
-        slideSpeed: 1000,
-        navigation: true,
-        pagination: false,
-        navigationText: [
-          "<i class='fa fa-angle-left'></i>",
-          "<i class='fa fa-angle-right'></i>"
-        ],
-        //afterAction: syncPosition,
-        responsiveRefreshRate: 200,
-    });
-</script>*@
