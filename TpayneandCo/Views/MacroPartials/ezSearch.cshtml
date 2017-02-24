@@ -217,13 +217,13 @@
             @RenderResults(model)
             if(model.TotalPages > 1)
             {
-                @RenderPager(model)  
+                @RenderPager(model)
             }
             if (model.SearchFormLocation == "bottom" || model.SearchFormLocation == "both")
             {
                 @RenderForm(model)
             }
-        }   
+        }
     }
     else
     {
@@ -250,8 +250,8 @@
 
     var cssClassSales = model.Department == "sales" ? "active" : "";
     var cssClassLettings = model.Department == "lettings" ? "active" : "";
-
-    if(model.Department == "sales")
+    //model.Department == "sales" &&
+    if(Model.Content.AncestorOrSelf(1).Id == 1106)
     {
         <form action="" method="get" class="property-search-form ezsearch-form container">
             <div class="row">
@@ -431,7 +431,7 @@
 
             <input type="hidden" name="department" value="sales">
             <!-- Default Order: Newest Properties First -->
-            <input type="hidden" name="orderby" value="price-low">
+            <input type="hidden" name="orderby" value="price-high">
 
         </form>
     } else {
@@ -539,7 +539,7 @@
 
             <input type="hidden" name="department" value="Lettings">
             <!-- Default Order: Newest Properties First -->
-            <input type="hidden" name="orderby" value="price-low">
+            <input type="hidden" name="orderby" value="price-high">
 
         </form>
     }
@@ -567,8 +567,8 @@
                 <div class="search-results-order clearfix">
                     <div class="form-group select">
                         <select name="orderby" id="orderby" class="selectpicker form-control">
-                            <option value="price-low">Sort by Price (Lowest First)</option>
                             <option value="price-high">Sort by Price (Highest First)</option>
+                            <option value="price-low">Sort by Price (Lowest First)</option>
                             @*<option value="name-asc">Sort by Name (ascending)</option>
                             <option value="name-desc">Sort by Name (descending)</option>*@
                         </select>
@@ -580,6 +580,7 @@
             </div>
 
         <script type="text/javascript" src="/scripts/switcher.js"></script>
+
         @foreach (var term in model.SearchTerms)
         {
             FormatHtml(GetDictionaryValue("[ezSearch] Summary", "Your search for <strong>\"{0}\"</strong> matched <strong>{1}</strong> page(s)."), term.Value);
@@ -613,7 +614,7 @@ if (model.Department == "sales")
             sortOrder = model.PagedResults.OrderByDescending(r => int.Parse(r.Fields["price"]));
             break;
         default:
-            sortOrder = model.PagedResults.OrderBy(r => int.Parse(r.Fields["price"]));
+            sortOrder = model.PagedResults.OrderByDescending(r => int.Parse(r.Fields["price"]));
             break;
     }
 }
@@ -633,7 +634,7 @@ else
     }
 }
     <div class="ezsearch-results container">
-        <div class="row">
+        <div id="products" class="row list-group">
             @foreach (var result in sortOrder)//model.PagedResults)
             {
                 switch (result.Fields["__IndexType"])
@@ -654,12 +655,57 @@ else
 
 @helper RenderContentResult(SearchViewModel model, IPublishedContent result)
 {
-var images = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-var mainImage = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).First();
-var image = Umbraco.TypedMedia(mainImage);
-var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? result.GetPropertyValue("price") : result.GetPropertyValue("rent").ToDecimal();
+    var images = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+    var mainImage = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).First();
+    var image = Umbraco.TypedMedia(mainImage);
+    var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? result.GetPropertyValue("price") : result.GetPropertyValue("rent").ToDecimal();
 
-    <div class="4u 12u(mobile) hero-feature">
+    <div class="item 4u 12u(mobile) col-xs-4 list-group-item">
+        <div class="thumbnail">
+            @if (result.HasValue("images"))
+            {
+                //var mainImage = result.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).First();
+                //var image = Umbraco.TypedMedia(mainImage);
+
+                <a href="@result.Url" class="image featured">
+                    <img class="group list-group-image" src="@image.Url" alt="@image.Name" />
+
+                    @if (result.GetPropertyValue<string>("availability") == "4")
+                    {
+                        <div class="corner_banner"><h2>sold stc</h2></div>
+                    }
+                </a>
+            }
+            <div class="caption">
+                <h4 class="group inner list-group-item-heading">
+                    @result.GetPropertyValue("displayAddress")
+                </h4>
+                <p class="group inner list-group-item-text">
+                    @Umbraco.Truncate(result.GetPropertyValue("mainSummary").ToString(), 122)
+                </p>
+                <ul class="meta">
+                    <li class="icon fa-camera">@images.Count()</li>
+                    <li class="icon fa-bed">@result.GetPropertyValue("propertyBedrooms")</li>
+                    <li class="icon fa-bath">@result.GetPropertyValue("propertyBathrooms")</li>
+                </ul>
+                <div class="row">
+                    <div class="12u(mobile) 6u col-md-6">
+                        <h4 class="lead">@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice) )</h4>
+                        @if (model.Department == "lettings")
+                        {
+                            var rentFrequency = Enum.GetName(typeof(RentFrequency), result.GetPropertyValue("rentFrequency"));
+                            <span>@rentFrequency</span>
+                        }
+                    </div>
+                    <div class="12u(mobile)  7u col-md-7">
+                        <a href="@result.Url" class="button">More Info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="4u 12u(mobile) hero-feature">
             <section class="box feature">
                 <a href="@result.Url" class="image featured">
                     <img src="@image.Url" alt="@image.Name">
@@ -684,7 +730,7 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
                 <a href="@result.Url" class="button">More Info</a>
                 <p></p>
             </section>
-        </div>
+        </div>*@
 }
 
 

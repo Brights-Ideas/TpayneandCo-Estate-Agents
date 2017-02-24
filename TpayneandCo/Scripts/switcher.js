@@ -1,52 +1,14 @@
 ﻿$(document).ready(function () {
 
-    $("a.switcher").on("click", function (e) {
-        e.preventDefault();
-
-        var theid = $(this).attr("data-view");
-        var theproperties = $(".ezsearch-results");
-        var classNames = $(this).attr('class').split(' ');
-
-        if ($(this).hasClass("active")) {
-            // if currently clicked button has the active class
-            // then we do nothing!
-            return false;
-        }
-        else {
-            // otherwise we are clicking on the inactive button
-            // and in the process of switching views!
-
-            if (theid == "grid-view") {
-                $(this).addClass("active");
-                $("#list").removeClass("active");
-
-                // remove the list class and change to grid
-                theproperties.removeClass("list");
-                theproperties.removeAttr('data-view', 'list-view');
-                theproperties.addClass("grid");
-                theproperties.attr('data-view', 'grid-view');
-
-                // update all thumbnails to larger size
-                //$("img.thumb").attr("src", gridthumb);
-            }
-
-            else if (theid == "list-view") {
-                $(this).addClass("active");
-                $("#grid").removeClass("active");
-
-                //var theimg = $(this).children("img");
-                //theimg.attr("src", "images/list-view-active.png");
-                // remove the grid view and change to list
-                theproperties.removeClass("grid");
-                theproperties.removeAttr('data-view', 'grid-view');
-                theproperties.addClass("list");
-                theproperties.attr('data-view', 'list-view');
-                // update all thumbnails to smaller size
-                //$("img.thumb").attr("src", listthumb);
-            }
-        }
-
+    $('#list').click(function (event) {
+        event.preventDefault();
+        $('#products .item').addClass('list-group-item');
     });
+        $('#grid').click(function (event) {
+            event.preventDefault();
+            $('#products .item').removeClass('list-group-item');
+            $('#products .item').addClass('grid-group-item');
+        });
 
     $('#orderby').on('changed.bs.select', function (event) {
 
