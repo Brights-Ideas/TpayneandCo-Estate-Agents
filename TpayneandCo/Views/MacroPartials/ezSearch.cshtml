@@ -113,7 +113,15 @@
         }
         else
         {
-            model.Department = string.IsNullOrEmpty(model.Department) ? "sales" : Request["department"];
+            if (CurrentPage.Id == 1106)
+            {
+                model.Department = "sales";
+            }
+            else
+            {
+                model.Department = "lettings";
+            }
+            //model.Department = string.IsNullOrEmpty(model.Department) ? "sales" : Request["department"];
             model.SearchTerm = "Location=any&" + "MinPrice=0&" + "MaxPrice=0&" + "department=" + model.Department + "&" + "orderBy=price-low";
 
         }
@@ -243,15 +251,14 @@
 
 @helper RenderForm(SearchViewModel model)
 {
-    if (string.IsNullOrEmpty(model.Department))
-    {
-        model.Department = "sales";
-    }
-
+   
     var cssClassSales = model.Department == "sales" ? "active" : "";
     var cssClassLettings = model.Department == "lettings" ? "active" : "";
     //model.Department == "sales" &&
-    if(Model.Content.AncestorOrSelf(1).Id == 1106)
+    var home = Model.Content.AncestorOrSelf(1);
+    var propertyOverview = Model.Content.AncestorOrSelf(1).DescendantOrSelf("umbPropertyOverview");
+    var bob = propertyOverview.Id;
+    if(CurrentPage.Id == 1106)
     {
         <form action="" method="get" class="property-search-form ezsearch-form container">
             <div class="row">
