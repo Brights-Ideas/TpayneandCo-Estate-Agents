@@ -20,7 +20,7 @@
         MinPrice = Convert.ToInt32(Request["MinPrice"]),
         MaxPrice = Convert.ToInt32(Request["MaxPrice"]),
         SortOrder = "" + Request["orderby"],
-        Department = "" + Request["department"],
+        //Department = "" + Request["department"],
         //?Location=7&MinBedrooms=0&MinPrice=0&MaxPrice=0&department=Sales&orderby=price-low
         SearchTerm = "Location=" + Request["Location"] + "&" + "MinPrice=" + Request["MinPrice"] + "&" + "MaxPrice=" + Request["MaxPrice"] + "&" + "department=" + Request["department"] + "&" + "orderBy=" + Request["orderby"],
         CurrentPage = int.TryParse(Request["p"], out parsedInt) ? parsedInt : 1,
@@ -75,9 +75,6 @@
 
         // Perform the search
         //var searcher = ExamineManager.Instance.SearchProviderCollection["ExternalSearcher"];
-        //var criteria = searcher.CreateSearchCriteria();
-        //var query = new StringBuilder();
-        //query.AppendFormat("-{0}:1 ", model.HideFromSearchField);
         //
         var searcher = ExamineManager.Instance.CreateSearchCriteria();
         var query = searcher.NodeTypeAlias("umbPropertyDetails");
@@ -92,18 +89,6 @@
             ? string.Format("__IndexType:{0} +searchPath:{1}", UmbracoExamine.IndexTypes.Media, model.RootMediaNodeId)
             : string.Format("__IndexType:{0}", UmbracoExamine.IndexTypes.Media);
 
-        //switch (model.IndexType)
-        //{
-        //    case UmbracoExamine.IndexTypes.Content:
-        //        query.AppendFormat("+({0}) ", contentPathFilter);
-        //        break;
-        //    case UmbracoExamine.IndexTypes.Media:
-        //        query.AppendFormat("+({0}) ", mediaPathFilter);
-        //        break;
-        //    default:
-        //        query.AppendFormat("+(({0}) ({1})) ", contentPathFilter, mediaPathFilter);
-        //        break;
-        //}
 
         var region = string.IsNullOrEmpty(model.Location) ? "any" : Request["Location"];
 
@@ -113,14 +98,7 @@
         }
         else
         {
-            if (CurrentPage.Id == 1106)
-            {
-                model.Department = "sales";
-            }
-            else
-            {
-                model.Department = "lettings";
-            }
+            model.Department = CurrentPage.Id == 1106 ? "sales" : "lettings";
             //model.Department = string.IsNullOrEmpty(model.Department) ? "sales" : Request["department"];
             model.SearchTerm = "Location=any&" + "MinPrice=0&" + "MaxPrice=0&" + "department=" + model.Department + "&" + "orderBy=price-low";
 
@@ -251,14 +229,10 @@
 
 @helper RenderForm(SearchViewModel model)
 {
-   
-    var cssClassSales = model.Department == "sales" ? "active" : "";
-    var cssClassLettings = model.Department == "lettings" ? "active" : "";
-    //model.Department == "sales" &&
     var home = Model.Content.AncestorOrSelf(1);
     var propertyOverview = Model.Content.AncestorOrSelf(1).DescendantOrSelf("umbPropertyOverview");
     var bob = propertyOverview.Id;
-    if(CurrentPage.Id == 1106)
+    if(model.Department == "sales")
     {
         <form action="" method="get" class="property-search-form ezsearch-form container">
             <div class="row">
@@ -436,7 +410,6 @@
 
             </div>
 
-            <input type="hidden" name="department" value="sales">
             <!-- Default Order: Newest Properties First -->
             <input type="hidden" name="orderby" value="price-high">
 
@@ -544,17 +517,12 @@
 
                     </div>
 
-            <input type="hidden" name="department" value="Lettings">
             <!-- Default Order: Newest Properties First -->
             <input type="hidden" name="orderby" value="price-high">
 
         </form>
     }
 
-    @*<form action="" method="GET" class="ezsearch-form">
-        <input type="text" name="q" placeholder="@(GetDictionaryValue("[ezSearch] Search", "Search"))" value="@(model.SearchTerm)" />
-        <input type="submit" value="@(GetDictionaryValue("[ezSearch] Search", "Search"))" />
-    </form>*@
 }
 
 @helper RenderSummary(SearchViewModel model)
