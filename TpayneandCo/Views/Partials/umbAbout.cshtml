@@ -1,8 +1,30 @@
 ﻿@inherits UmbracoTemplatePage
 
 <!-- About -->
-<div class="8u 12u(mobile) col-xs-12 col-sm-10 col-md-8 text-center">
+<section>
     <h2 class="major"><span>@Umbraco.Field("aboutTitle", recursive: true)</span></h2>
-    @Umbraco.Field("aboutText", recursive: true)
-</div>
+    <div class="row">
+        <div class="4u 12u(mobile)">
+            @if (CurrentPage.HasValue("officeImage"))
+            {
+                var m = Umbraco.Media(CurrentPage.officeImage);
+
+                <img src="@m.Url" alt="@m.UrlName" class="img-thumbnail" />}
+        </div>
+        <div class="8u 12u(mobile)">
+            @Umbraco.Field("aboutText", recursive: true)
+
+            @if (CurrentPage.HasValue("aboutImages"))
+            {
+                var imagesList = Model.Content.GetPropertyValue<string>("aboutImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+                var imagesCollection = Umbraco.TypedMedia(imagesList).Where(x => x != null);
+
+                foreach (var imageItem in imagesCollection)
+                {
+                    <img src="@imageItem.Url" class="image left" />
+                }
+            }
+        </div>
+    </div>
+</section>
 <!-- /About -->

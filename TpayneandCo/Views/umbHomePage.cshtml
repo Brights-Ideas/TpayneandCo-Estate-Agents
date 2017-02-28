@@ -4,48 +4,14 @@
 }
 @{ Html.RenderPartial("umbHomepageBanner"); }
 <!-- Main -->
-<section id="wellcome" class="padding">
-    <div class="container">
+<section id="main-wrapper">
+    <div id="main" class="container">
         <div class="row">
-			 @{ Html.RenderPartial("umbAbout"); }
-            <div class="col-xs-12 col-sm-10 col-md-8 text-center">
-                <h2 class="text-uppercase">Welcome to <span class="color_red">idea homes</span></h2>
-                <div class="line_1-1"></div>
-                <div class="line_2-2"></div>
-                <div class="line_3-3"></div>
-                <p class="heading_space">
-                    Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit, elementum sed varius at, adipiscing
-                    vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.
-                </p>
-            </div>
-            <div class="col-sm-1 col-md-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-12 text-center">
-                <div class="welcome top40">
-                    <img src="images/wellcome_1.png" alt="image">
-                    <h4> 24/7 Emergency Available</h4>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-12 text-center">
-                <div class="welcome top40">
-                    <img src="images/wellcome_2.png" alt="image">
-                    <h4>Expert and Professional</h4>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-12 text-center">
-                <div class="welcome top40">
-                    <img src="images/wellcome_3.png" alt="image">
-                    <h4>Satisfaction Guarantee</h4>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-12 text-center">
-                <div class="welcome top40">
-                    <img src="images/wellcome_4.png" alt="image">
-                    <h4>Free Inspection</h4>
-                </div>
+            <div class="12u">
+                @{ Html.RenderPartial("umbAbout"); }
             </div>
         </div>
+        
     </div>
 </section>
 

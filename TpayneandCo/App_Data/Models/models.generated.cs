@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "51d3eaf05cb61861")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4b80ee1d564dd31b")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -50,7 +50,34 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("description")]
+		public string Description
+		{
+			get { return this.GetPropertyValue<string>("description"); }
+		}
+
+		///<summary>
+		/// Keywords
+		///</summary>
+		[ImplementPropertyType("keywords")]
+		public string Keywords
+		{
+			get { return this.GetPropertyValue<string>("keywords"); }
+		}
+
+		///<summary>
 		/// Page title: The page title overrules the name this page was given. So if the page name is "About us" the title could be "About Our Company Name".
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return this.GetPropertyValue<string>("pageTitle"); }
+		}
+
+		///<summary>
+		/// Title
 		///</summary>
 		[ImplementPropertyType("title")]
 		public string Title
@@ -91,6 +118,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UmbHomePage, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// About Images
+		///</summary>
+		[ImplementPropertyType("aboutImages")]
+		public string AboutImages
+		{
+			get { return this.GetPropertyValue<string>("aboutImages"); }
 		}
 
 		///<summary>
@@ -217,6 +253,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string LinkedInLink
 		{
 			get { return this.GetPropertyValue<string>("linkedInLink"); }
+		}
+
+		///<summary>
+		/// Office Image
+		///</summary>
+		[ImplementPropertyType("officeImage")]
+		public string OfficeImage
+		{
+			get { return this.GetPropertyValue<string>("officeImage"); }
 		}
 
 		///<summary>

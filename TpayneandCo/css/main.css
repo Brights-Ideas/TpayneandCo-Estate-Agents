@@ -1392,6 +1392,7 @@
 /* List View */
 
 	.glyphicon { margin-right:5px; }
+
 	.thumbnail
 	{
 		margin-bottom: 20px;
@@ -1399,13 +1400,13 @@
 		-webkit-border-radius: 0px;
 		-moz-border-radius: 0px;
 		border-radius: 0px;
+		border: none;
 	}
 
-    .thumbnail .caption {
-        padding: 5px;
-        color: #333333;
-    }
-
+	.thumbnail .caption {
+		padding: 5px;
+		color: #333333;
+	}
 	.item.list-group-item
 	{
 		float: none;
@@ -1418,7 +1419,7 @@
 		background: #428bca;
 	}
 
-        .\34 u.item.list-group-item .list-group-image
+	    .\34 u.item.list-group-item .list-group-image
         {
             width: 33.3333333333%;
             margin-right: 10px;
@@ -1454,6 +1455,20 @@
 	{
 		float: left;
 	}
+
+	.owl-item .thumbnail > img {
+		max-height: 500px;
+		/*width: 500px;*/
+	}
+
+	.owl-item .item img {
+		max-height: 100px;
+	}
+
+	.owl-item .item {
+		margin: 3px;
+	}
+
 	.item.list-group-item:after
 	{
 		clear: both;
@@ -1464,7 +1479,7 @@
 	}
 
 	.row.list-group > * {
-		padding: 10px 15px;
+		padding: 5px 10px;
 	}
 
 	.thumbnail .row {
@@ -1691,7 +1706,39 @@
 		ol.default li {
 			padding-left: 0.25em;
 		}
+/* Showcase */
+	.showcase-thumbnail-button-backward, .showcase-thumbnail-button-forward {
+		padding: 7px;
+		cursor: pointer;
+	}
 
+	.showcase-thumbnail-button-backward {
+		padding-bottom: 0px;
+		padding-right: 0px;
+	}
+	
+	.showcase-thumbnail-button-forward .showcase-thumbnail-horizontal {
+		background-position: 0 0;
+		margin-top: 35px;
+		margin-bottom: 35px;
+	}
+
+	.showcase-thumbnail-button-backward .showcase-thumbnail-horizontal {
+		background-position: 0 -17px;
+		margin-top: 35px;
+		margin-bottom: 35px;
+	}
+	.showcase-thumbnail-button-forward .showcase-thumbnail-horizontal,
+	.showcase-thumbnail-button-backward .showcase-thumbnail-horizontal {
+		background-image: url(../images/arrows-small.png);
+		background-repeat: no-repeat;
+		display: block;
+		width: 17px;
+		height: 17px;
+	}
+	.showcase-thumbnail-button-forward span span, .showcase-thumbnail-button-backward span span {
+		display: none;
+	}
 /* Forms */
 
     .property-search-form {
@@ -1933,8 +1980,8 @@
 			color: #575d59;
 		}
 
-		#banner .byline {
-    		font-size: 1.3em;
+		#banner .byline a {
+    		font-size: 1.6em;
     		color: #ffffff;
 		}
 

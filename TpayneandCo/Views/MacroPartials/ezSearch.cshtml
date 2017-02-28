@@ -199,7 +199,7 @@
                 @RenderForm(model)
             }
             @RenderSummary(model)
-            @RenderResultsRange(model)
+            @*@RenderResultsRange(model)*@
             @RenderResults(model)
             if(model.TotalPages > 1)
             {
@@ -556,16 +556,16 @@
 
         <script type="text/javascript" src="/scripts/switcher.js"></script>
 
-        @foreach (var term in model.SearchTerms)
+        @*@foreach (var term in model.SearchTerms)
         {
             FormatHtml(GetDictionaryValue("[ezSearch] Summary", "Your search for <strong>\"{0}\"</strong> matched <strong>{1}</strong> page(s)."), term.Value);
         }
 
-        <p>@FormatHtml(GetDictionaryValue("[ezSearch] Summary", "Your search for <strong>\"{0}\"</strong> matched <strong>{1}</strong> page(s)."), model.SearchTerm, model.TotalResults)</p>
+        <p>@FormatHtml(GetDictionaryValue("[ezSearch] Summary", "Your search for <strong>\"{0}\"</strong> matched <strong>{1}</strong> page(s)."), model.SearchTerm, model.TotalResults)</p>*@
     </div>
 }
 
-@helper RenderResultsRange(SearchViewModel model)
+@*@helper RenderResultsRange(SearchViewModel model)
 {
     var startRecord = ((model.CurrentPage - 1)*model.PageSize) + 1;
     var endRecord = Math.Min(model.TotalResults, (startRecord - 1) + model.PageSize);
@@ -573,7 +573,7 @@
     <div class="ezsearch-result-count">
         <p>@FormatHtml(GetDictionaryValue("[ezSearch] Results Range", "Showing results <strong>{0}</strong> to <strong>{1}</strong>."), startRecord, endRecord)</p>
     </div>
-}
+}*@
 
 @helper RenderResults(SearchViewModel model)
 {
@@ -679,33 +679,6 @@ else
             </div>
         </div>
     </div>
-
-    @*<div class="4u 12u(mobile) hero-feature">
-            <section class="box feature">
-                <a href="@result.Url" class="image featured">
-                    <img src="@image.Url" alt="@image.Name">
-
-                </a>
-
-                <h3>@result.GetPropertyValue("displayAddress")</h3>
-                <p>@Umbraco.Truncate(result.GetPropertyValue("mainSummary").ToString(), 122)</p>
-
-                <ul class="meta">
-                    <li class="icon fa-camera">@images.Count()</li>
-                    <li class="icon fa-bed">@result.GetPropertyValue("propertyBedrooms")</li>
-                    <li class="icon fa-bath">@result.GetPropertyValue("propertyBathrooms")</li>
-                </ul>
-                <p>
-                </p><h4>@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice)) </h4>
-                @if (model.Department == "lettings")
-                {
-                    var rentFrequency = Enum.GetName(typeof(RentFrequency), result.GetPropertyValue("rentFrequency"));
-                    <span>@rentFrequency</span>
-                }
-                <a href="@result.Url" class="button">More Info</a>
-                <p></p>
-            </section>
-        </div>*@
 }
 
 
