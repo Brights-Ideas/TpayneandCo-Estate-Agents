@@ -79,6 +79,8 @@
                         <a target="_blank" class="btn button" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
                             <i class="fa fa-link"></i><span> Brochure</span>
                         </a>
+
+
                     </section>
                 </div>
             </div>
@@ -91,6 +93,11 @@
                             <li class="active">
                                 <a href="#description" data-toggle="tab">
                                     Description
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#profile" data-toggle="tab">
+                                    Map View
                                 </a>
                             </li>
                             <li>
@@ -124,6 +131,11 @@
                                     <img src="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())" />
                                 }
                             </div>
+                            <div class="tab-pane" id="profile">
+                                <div id="map-wrapper">
+                                    <div id="google-map"></div>
+                                </div>
+                            </div>
                             <div class="tab-pane" id="floorplan">
                                 <p>
                                     <img class="img-responsive" src="@Html.Raw(Model.Content.GetPropertyValue<string>("floorplans").StripHtml())" />
@@ -137,3 +149,134 @@
         </div>
     </div>
 </div>
+@*<script>
+    var map;
+
+    jQuery(function($) {
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+            var myOptions = {
+                zoom: 8,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+            console.dir(map);
+            google.maps.event.trigger(map, 'resize');
+
+            $('a[href="#profile"]').on('shown', function(e) {
+                google.maps.event.trigger(map, 'resize');
+            });
+            $("#map_canvas").css("height", 400);
+        });
+    });
+        </script>*@
+<script>
+var map, marker;
+jQuery(function ($) {
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+
+	//function initMap() {
+
+		var mapOptions = {
+		  	center: new google.maps.LatLng( @CurrentPage.Latitude,@CurrentPage.Longitude),
+		  //center: new google.maps.LatLng( 51.5286416,-0.1015987),
+		  	zoom: 12,
+		  	scrollwheel: false,
+		  	streetViewControl: true,
+			disableDefaultUI: true
+		};
+
+		map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+
+		var customIcon = new google.maps.MarkerImage(
+		'http://www.tpayneandco.co.uk/wp-content/themes/realty/lib/images/map-marker/map-marker-gold-fat.png',
+		null, // size is determined at runtime
+		null, // origin is 0,0
+		null, // anchor is bottom center of the scaled image
+		new google.maps.Size(50, 69)
+		);
+			var markerClusterOptions = {
+			gridSize: 60, // Default: 60
+			maxZoom: 14,
+			styles: [{
+				width: 50,
+				height: 50,
+				url: "http://www.tpayneandco.co.uk/wp-content/themes/realty/lib/images/map-marker/map-marker-gold-round.png"
+			}]
+		};
+
+		var marker = new google.maps.Marker({
+    		map: map,
+			position: new google.maps.LatLng( @CurrentPage.Latitude,@CurrentPage.Longitude),
+    		//position: new google.maps.LatLng( 51.5286416,-0.1015987),
+    		icon: customIcon,
+    		title: 'Situated in a popular village location, this well presented 3 bedroom modern detached house has an enclosed rear garden, garage and driveway.',
+		  });
+
+		var propertyThumbnail = '<img width="300" height="225" src="@imagesCollection.First().Url" />';
+		//var propertyThumbnail = '<img width="300" height="225" src="http://www.tpayneandco.co.uk/wp-content/uploads/2017/02/DSC09890-300x225.jpg" class="attachment-medium wp-post-image" alt="DSC09890" />';
+		var propertyThumbnail=propertyThumbnail.replace(/'/g, '&quot;');
+    	var propertyPrice = '@String.Format(new CultureInfo("en-GB"), "{0:C}", CurrentPage.Price)';//'£210,000';
+    	var propertyPrice=propertyPrice.replace(/'/g, '&quot;', '&#163;');
+    	//var propertyTitle = '<h5 class="title">Situated in a popular village location, this well presented 3 bedroom modern detached house has an enclosed rear garden, garage and driveway.</h5>';
+    	//var propertyTitle=propertyTitle.replace(/'/g, '&quot;');
+		// http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/docs/reference.html
+		var infobox = new InfoBox({
+	  	content: 	'<div class="map-marker-wrapper">'+
+    						'<div class="map-marker-container">'+
+	    						'<div class="arrow-down"></div>'+
+									propertyThumbnail+
+									'<div class="content">'+
+									//propertyTitle+
+									propertyPrice+
+									'</div>'+
+								'</div>'+
+					    '</div>',
+	  disableAutoPan: false,
+	  pixelOffset: new google.maps.Size(-33, -90),
+	  zIndex: null,
+	  alignBottom: true,
+	  closeBoxURL: "http://www.tpayneandco.co.uk/wp-content/themes/realty/lib/images/close.png",
+	  infoBoxClearance: new google.maps.Size(50, 50)
+	});
+		//alert("got latlng");
+	function getLatLng(callback) {
+		latLng = new google.maps.LatLng(@CurrentPage.Latitude,@CurrentPage.Longitude),
+		//latLng = new google.maps.LatLng(52.65544269999999, 0.09992690000001403);
+		callback(latLng);
+	}
+
+  getLatLng(function(latLng) {
+
+	  marker.setPosition(latLng);
+	  map.setCenter(latLng);
+	  map.setZoom(14);
+   	google.maps.event.addListener(marker, 'click', function() {
+	  	infobox.open(map, marker);
+	    map.panTo(latLng);
+		});
+
+  });
+
+	// Maps Fully Loaded: Hide + Remove Spinner
+	//google.maps.event.addListenerOnce(map, 'idle', function() {
+		//jQuery('.spinner').fadeTo(800, 0.5);
+		//setTimeout(function() {
+		  //jQuery('.spinner').remove();
+		//}, 800);
+	//});
+
+
+//}
+
+	//google.maps.event.addDomListener(window, 'load', initMap);
+	//$('a[href="#profile"]').on('shown', function(e) {
+		//google.maps.event.addDomListener(window, 'resize', initMap);
+	//});
+	//$("#google-map").css("height", 400);
+	});
+
+});
+</script>

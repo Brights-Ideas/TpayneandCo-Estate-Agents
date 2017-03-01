@@ -246,9 +246,6 @@
                         <option value="2">
                             Benwick
                         </option>
-                        <option value="4">
-                            Doddington
-                        </option>
                         <option value="5">
                             March
                         </option>
@@ -421,25 +418,22 @@
                         <div class="3u 12u(mobile) form-group select">
                             <select name="Location" class="form-control selectpicker" data-none-selected-text="Any Location">
                                 <option value="any">Any Location</option>
-                                <option value="1">
+                                <option value="2">
                                     Wisbech
                                 </option>
-                                <option value="2">
-                                    Benwick
-                                </option>
-                                <option value="4">
-                                    Doddington
-                                </option>
-                                <option value="5">
+                                <option value="6">
                                     March
                                 </option>
                                 <option value="8">
                                     Chatteris
                                 </option>
-                                <option value="9">
+                                <option value="10">
                                     Ramsey
                                 </option>
-                                <option value="31">
+                                <option value="12">
+                                    Cambridge
+                                </option>
+                                <option value="33">
                                     Ely
                                 </option>
                             </select>
@@ -645,9 +639,13 @@ else
                 <a href="@result.Url" class="image featured">
                     <img class="group list-group-image" src="@image.Url" alt="@image.Name" />
 
-                    @if (result.GetPropertyValue<string>("availability") == "4")
+                    @if (model.Department == "sales" && result.GetPropertyValue<string>("availability") == "4")
                     {
                         <div class="corner_banner"><h2>sold stc</h2></div>
+                    }
+                    @if (model.Department == "lettings" && result.GetPropertyValue<string>("availability") == "4")
+                    {
+                        <div class="corner_banner"><h2>Let by</h2></div>
                     }
                 </a>
             }
