@@ -663,11 +663,14 @@ else
                 </ul>
                 <div class="row">
                     <div class="12u(mobile) 6u col-md-6">
-                        <h4 class="lead">@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice) )</h4>
                         @if (model.Department == "lettings")
                         {
                             var rentFrequency = Enum.GetName(typeof(RentFrequency), result.GetPropertyValue("rentFrequency"));
                             <span>@rentFrequency</span>
+                        }
+                        else
+                        {
+                            <h4 class="lead">@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice) )</h4>
                         }
                     </div>
                     <div class="12u(mobile)  7u col-md-7">
