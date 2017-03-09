@@ -21,7 +21,6 @@
                         <header>
                             <h2>@pageTitle</h2>
                             <p>@(String.Format(new CultureInfo("en-GB"), "{0:C}", CurrentPage.Price) )</p>
-                            @*<h2 class="text-right">£6,500,000</h2>*@
                         </header>
                         <section>
                             <div id="showcase-loader" style="display: none;"></div>
@@ -65,8 +64,12 @@
                 <div class="sidebar">
                     <!-- Sidebar -->
                     <section>
+                        <input type="button" value="<< Back to property listings" onclick="history.back(-1)" />
+                        @*<a href="javascript:history.go(-1)" rel="nofollow"><< Back to property listings</a>*@
+                    </section>
+                    <section>
                         <h2 class="major"><span>Summary</span></h2>
-                        <p>@CurrentPage.clientName</p>
+                        <p>@Html.Raw(Model.Content.GetPropertyValue<string>("clientName").StripHtml())</p>
                         <p>@CurrentPage.branchName</p>
 
                         <a href="tel:01354 696700">
@@ -74,12 +77,8 @@
                         </a>
                     </section>
                     <section>
-                        <h2 class="major"><span>Share</span></h2>
+                        <h2 class="major"><span>Share This Property</span></h2>
                         <div class="addthis_inline_share_toolbox_9492"></div>
-                        <a target="_blank" class="btn button" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
-                            <i class="fa fa-link"></i><span> Brochure</span>
-                        </a>
-
 
                     </section>
                 </div>
@@ -118,8 +117,16 @@
 
                                 <h3>Full Description</h3>
 
-                                @Html.Raw(CurrentPage.FullDescription)
-
+                                <p>@Html.Raw(CurrentPage.FullDescription)</p>
+                                <hr>
+                                @if (CurrentPage.HasValue("brochures"))
+                                {
+                                    <h3>More information</h3>
+                                    <a target="_blank" href="@Html.Raw(Model.Content.GetPropertyValue<string>("brochures").StripHtml())">
+                                        <span> Brochure</span> <i class="fa fa-link"></i>
+                                    </a>
+                                }
+                                <hr>
                                 @if (CurrentPage.HasValue("epcGraphs"))
                                 {
                                     <h3>Energy Performance Certificate (EPC)</h3>
@@ -130,6 +137,7 @@
                                     </p>
                                     <img src="@Html.Raw(Model.Content.GetPropertyValue<string>("epcGraphs").StripHtml())" />
                                 }
+
                             </div>
                             <div class="tab-pane" id="profile">
                                 <div id="map-wrapper">

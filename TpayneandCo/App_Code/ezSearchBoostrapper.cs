@@ -5,6 +5,9 @@ using System.Text;
 using System.Web;
 using Examine;
 using Umbraco.Core;
+using umbraco.NodeFactory;
+using UmbracoExamine;
+using System.Collections.Generic;
 
 namespace Our.Umbraco.ezSearch
 {
@@ -37,6 +40,30 @@ namespace Our.Umbraco.ezSearch
                 e.Fields["searchPath"] = e.Fields["path"].Replace(',', ' ');
             }
 
+            umbraco.NodeFactory.Node theNode = new umbraco.NodeFactory.Node(e.NodeId);
+            //check if this is 'Content' (as opposed to media, etc...)
+            if (e.IndexType == IndexTypes.Content)
+            {
+
+                if (theNode.NodeTypeAlias == "umbPropertyDetails")
+                {
+                    var node = new Node(e.NodeId);
+
+                    var propertyValue = TpayneandCo.App_Code.ExamineEventsHelper.GetPropertyValue(theNode, "price");
+
+                    if (propertyValue != string.Empty)
+                    {
+
+                        e.Fields.Add("__" + "price", GetFieldValue(e, propertyValue, "price"));
+
+                    }
+
+                }
+
+                AddToContentsField(e);
+
+            }
+
             // Lowercase all the fields for case insensitive searching
             var keys = e.Fields.Keys.ToList();
             foreach (var key in keys)
@@ -57,6 +84,52 @@ namespace Our.Umbraco.ezSearch
                 combinedFields.AppendLine(keyValuePair.Value);
             }
             e.Fields.Add("contents", combinedFields.ToString());
+        }
+
+        private void AddToContentsField(IndexingNodeDataEventArgs e)
+        {
+
+            Dictionary<string, string> fields = e.Fields;
+
+            var combinedFields = new StringBuilder();
+
+            foreach (KeyValuePair<string, string> keyValuePair in fields)
+            {
+
+                combinedFields.AppendLine(keyValuePair.Value);
+
+            }
+
+            e.Fields.Add("contents", combinedFields.ToString());
+
+        }
+
+        private string GetFieldValue(IndexingNodeDataEventArgs e, string propertyValue, string luceneFieldAlias)
+        {
+
+            int nodeId = 0;
+
+            int.TryParse(propertyValue, out nodeId);
+
+            var n = new Node(nodeId);
+
+            //node does not exist but we have numeric value
+
+            if (n.Id != 0)
+            {
+
+                //have to pad out to get lucene range queries to work
+
+                int i = 0;
+
+                int.TryParse(n.Name, out i);
+
+                return i.ToString("D6");
+
+            }
+
+            return nodeId.ToString("D6");
+
         }
     }
 }

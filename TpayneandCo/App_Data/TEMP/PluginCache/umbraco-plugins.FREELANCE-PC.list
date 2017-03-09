@@ -48,8 +48,8 @@
     <add type="CMSImport.Events.DeleteRelationRecord, CMSImport.Events, Version=3.6.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="CMSImport.Events.PackageInstallerEvents, CMSImport.Events, Version=3.6.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.providers.members.MembershipEventHandler, umbraco.providers, Version=1.0.6233.15014, Culture=neutral, PublicKeyToken=null" />
-    <add type="Our.Umbraco.ezSearch.ezSearchBoostrapper, App_Code.8cim8hlv, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.editorControls.PickerRelations.PickerRelationsEventHandler, umbraco.editorControls, Version=1.0.6233.15018, Culture=neutral, PublicKeyToken=null" />
+    <add type="Our.Umbraco.ezSearch.ezSearchBoostrapper, App_Code.hbhmz6sn, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.BusinessLogic.ApplicationRegistrar, businesslogic, Version=1.0.6233.15012, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.BusinessLogic.ApplicationTreeRegistrar, businesslogic, Version=1.0.6233.15012, Culture=neutral, PublicKeyToken=null" />
   </baseType>
