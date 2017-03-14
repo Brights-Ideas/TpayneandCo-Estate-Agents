@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TpayneandCo.App_Code
+namespace Our.Umbraco.ezSearch
 {
     public static class ExamineEventsHelper
     {

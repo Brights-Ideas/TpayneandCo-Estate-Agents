@@ -81,8 +81,8 @@
       <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Examine, Version=0.1.80.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Examine.0.1.80\lib\net45\Examine.dll</HintPath>
+    <Reference Include="Examine, Version=0.1.81.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Examine.0.1.81\lib\net45\Examine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
@@ -446,7 +446,9 @@
     <Content Include="config\FileSystemProviders.config" />
     <Content Include="config\feedProxy.config" />
     <Content Include="config\ExamineSettings.config" />
-    <Content Include="config\ExamineIndex.config" />
+    <Content Include="config\ExamineIndex.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="config\EmbeddedMedia.config" />
     <Content Include="config\Dashboard.config" />
     <Content Include="config\ClientDependency.config" />
