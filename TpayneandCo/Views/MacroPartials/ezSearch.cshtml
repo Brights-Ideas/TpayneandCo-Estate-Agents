@@ -666,8 +666,7 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
                         }
                         else
                         {
-                            @*<h4 class="lead">@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice) )</h4>*@
-                            <h4>@result.GetPropertyValue("price")</h4>
+                            <h4 class="lead">@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice) )</h4>
                         }
                     </div>
                     <div class="col-xs-12 col-md-7">
