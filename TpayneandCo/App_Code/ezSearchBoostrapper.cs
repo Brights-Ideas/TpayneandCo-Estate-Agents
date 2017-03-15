@@ -26,6 +26,7 @@ namespace Our.Umbraco.ezSearch
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, 
             ApplicationContext applicationContext)
         {
+            ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].RebuildIndex();
             ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"]
                 .GatheringNodeData += OnGatheringNodeData;
         }
