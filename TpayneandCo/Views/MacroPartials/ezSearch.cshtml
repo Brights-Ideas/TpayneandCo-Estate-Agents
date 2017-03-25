@@ -24,9 +24,9 @@
         MinPrice = Convert.ToInt32(Request["MinPrice"]),
         MaxPrice = Convert.ToInt32(Request["MaxPrice"]),
         SortOrder = "" + Request["orderby"],
-        Department = "" + Request["department"],
-        SearchTerm = "Location=" + Request["Location"] + "&" + "MinPrice=" + Request["MinPrice"] + "&" + "MaxPrice=" + Request["MaxPrice"] + "&" + "department=" + Request["department"] + "&" + "orderby=" + Request["orderby"],
-
+        //Department = "" + Request["department"],
+        //SearchTerm = "Location=" + Request["Location"] + "&" + "MinPrice=" + Request["MinPrice"] + "&" + "MaxPrice=" + Request["MaxPrice"] + "&" + "department=" + Request["department"] + "&" + "orderby=" + Request["orderby"],
+        SearchTerm = "Location=" + Request["Location"] + "&" + "MinPrice=" + Request["MinPrice"] + "&" + "MaxPrice=" + Request["MaxPrice"] + "&" + "orderby=" + Request["orderby"],
 
         CurrentPage = int.TryParse(Request["p"], out parsedInt) ? parsedInt : 1,
 
@@ -79,15 +79,12 @@
     if (items.Any())// !string.IsNullOrWhiteSpace(model.SearchTerm))
     {
         // Add terms to search terms
-        foreach (var item in items)
-        {
-            model.SearchTerms.Add(item[0], item[1]);
-        }
-
-        // Tokenize the search term
-        //model.SearchTerms = Tokenize(model.SearchTerm);
-
+        //foreach (var item in items)
+        //{
+        //    model.SearchTerms.Add(item[0], item[1]);
+        //}
         // Perform the search
+        //ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].RebuildIndex();
         var Searcher = ExamineManager.Instance.SearchProviderCollection["ExternalSearcher"];
         var searcher = Searcher.CreateSearchCriteria();
         //var searcher = ExamineManager.Instance.SearchProviderCollection["InternalSearcher"];
@@ -95,56 +92,33 @@
         query.Not().Field("umbracoNaviHide", "1");
 
         // Set search path
-        var contentPathFilter = model.RootContentNodeId > 0
-            ? string.Format("__IndexType:{0} +searchPath:{1} -template:0", UmbracoExamine.IndexTypes.Content, model.RootContentNodeId)
-            : string.Format("__IndexType:{0} -template:0", UmbracoExamine.IndexTypes.Content);
-
-        var mediaPathFilter = model.RootMediaNodeId > 0
-            ? string.Format("__IndexType:{0} +searchPath:{1}", UmbracoExamine.IndexTypes.Media, model.RootMediaNodeId)
-            : string.Format("__IndexType:{0}", UmbracoExamine.IndexTypes.Media);
-
-        //switch (model.IndexType)
-        //{
-        //    case UmbracoExamine.IndexTypes.Content:
-        //        query.AppendFormat("+({0}) ", contentPathFilter);
-        //        break;
-        //    case UmbracoExamine.IndexTypes.Media:
-        //        query.AppendFormat("+({0}) ", mediaPathFilter);
-        //        break;
-        //    default:
-        //        query.AppendFormat("+(({0}) ({1})) ", contentPathFilter, mediaPathFilter);
-        //        break;
-        //}
 
         // Ensure page contains all search terms in some way
-        var region = string.IsNullOrEmpty(model.Location) ? "any" : model.Location;
+        //var region = string.IsNullOrEmpty(model.Location) ? "any" : model.Location;
 
-        if (region != "any")
+        if (!string.IsNullOrEmpty(model.Location))//region != "any")
         {
             query.And().Field("regionID", model.Location);
         }
         else
         {
-            model.Department = model.RootContentNodeId == 1106 ? "sales" : "lettings";
+            //model.Department = model.RootContentNodeId == 1106 ? "sales" : "lettings";
 
-            //model.SearchTerm = "Location=any&" + "MinPrice=" + model.MinPrice + "&" + "MaxPrice=" + model.MaxPrice + "&" + "department=" + model.Department + "&" + "orderby=" + model.SortOrder;
+            model.SearchTerm = "Location=any&" + "MinPrice=" + model.MinPrice + "&" + "MaxPrice=" + model.MaxPrice;// + "&" + "department=" + model.Department;
         }
+
+        model.Department = model.RootContentNodeId == 1106 ? "sales" : "lettings";
+        query.And().Field("department", model.Department);
 
         var paddedLower = model.MinPrice.ToString("D6");
         var paddedHigher = model.MaxPrice.ToString("D6");
 
         if (model.MinPrice > 0 && model.MaxPrice > 0)
         {
-            query.And().Range(model.Department == "sales" ? "paddedPrice" : "paddedRent", paddedLower, paddedHigher, true,true);
+            query.And().Range(model.Department == "sales" ? "paddedPrice" : "paddedRent", paddedLower, paddedHigher, true, true);
         }
         else if (model.MinPrice > 0 && model.Department == "sales")
         {
-            //IBooleanOperation Range(string fieldName, DateTime start, DateTime end);
-            //IBooleanOperation Range(string fieldName, DateTime start, DateTime end, bool includeLower, bool includeUpper);
-            //IBooleanOperation Range(string fieldName, int start, int end);
-            //IBooleanOperation Range(string fieldName, int start, int end, bool includeLower, bool includeUpper);
-            //IBooleanOperation Range(string fieldName, string start, string end);
-            //IBooleanOperation Range(string fieldName, string start, string end, bool includeLower, bool includeUpper);
             model.MaxPrice = 900000;
             query.And().Range("paddedPrice", paddedLower, model.MaxPrice.ToString("D6"));
         }
@@ -164,8 +138,6 @@
             query.And().Range("propertyBedrooms", model.MinBedrooms.ToString(), "5", true, true);
             //query.And().Field("propertyBedrooms", model.MinBedrooms.ToString());
         }
-
-        query.And().Field("department", model.Department);
 
         // ordering
         IList<SearchResult> results = new List<SearchResult>();
@@ -279,8 +251,6 @@
 
 @helper RenderForm(SearchViewModel model)
 {
-var cssClassSales = model.Department == "sales" ? "active" : "";
-var cssClassLettings = model.Department == "lettings" ? "active" : "";
 
 if (model.Department == "sales")
 {
@@ -441,7 +411,7 @@ if (model.Department == "sales")
                     <input type="submit" value="@(GetDictionaryValue("[ezSearch] Search", "Search"))" class="btn btn-primary btn-lg btn-block" />
                 </div>
             </div>
-            <input type="hidden" name="department" value="sales">
+            @*<input type="hidden" name="department" value="sales">*@
             <!-- Default Order: Newest Properties First -->
             <input type="hidden" name="orderby" value="price-high">
 
@@ -732,6 +702,8 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
 
 @helper RenderNoResults(SearchViewModel model)
 {
+    var items = model.SearchTerm.Split(new[] { "&" }, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Split(new[] { '=' }));
+
     <div class="ezsearch-no-results container">
         <div class="row">
             <div class="12u">
@@ -743,7 +715,12 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
                         </header>
                         <section>
                             <h3>In order to return properties in your searches, try adjusting your search criteria</h3>
-                            <p>@FormatHtml(GetDictionaryValue("[ezSearch] No Results", "No results found for search term <strong>{0}</strong>."), model.SearchTerm)</p>
+                            @*<p>@FormatHtml(GetDictionaryValue("[ezSearch] No Results", "No results found for search term <strong>{0}</strong>."), items)</p>
+                            @foreach (var field in items)
+                            {
+                                <p>@FormatHtml(GetDictionaryValue("[ezSearch] No Results", "No results found for search term <strong>{0}</strong>."), field)</p>
+                                //break;
+                            }*@
                         </section>
                     </article>
                 </div>

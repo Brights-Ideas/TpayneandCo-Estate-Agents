@@ -13,20 +13,29 @@ namespace Our.Umbraco.ezSearch
 {
     public class ezSearchBoostrapper : IApplicationEventHandler
     {
+        //ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].RebuildIndex();
+
         #region Application Event Handlers
 
         public void OnApplicationInitialized(UmbracoApplicationBase umbracoApplication, 
             ApplicationContext applicationContext)
-        { }
+        {
+            //ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].RebuildIndex();
+        }
 
         public void OnApplicationStarting(UmbracoApplicationBase umbracoApplication, 
             ApplicationContext applicationContext)
-        { }
+        {
+            //ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"]
+                  //.GatheringNodeData += OnGatheringNodeData;
+            //ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].RebuildIndex();
+        }
 
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, 
             ApplicationContext applicationContext)
         {
             ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].RebuildIndex();
+
             ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"]
                 .GatheringNodeData += OnGatheringNodeData;
         }

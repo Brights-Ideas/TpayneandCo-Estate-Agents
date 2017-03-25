@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Examine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,8 @@ using System.Web.Routing;
 
 namespace TpayneandCo
 {
-    public class MvcApplication : System.Web.HttpApplication
+    //public class Global : Umbraco.Web.UmbracoApplication
+    public class MvcApplication : Umbraco.Web.UmbracoApplication //System.Web.HttpApplication
     {
         protected void Application_Start()
         {

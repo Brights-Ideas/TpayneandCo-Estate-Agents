@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Examine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,5 +18,10 @@ namespace Our.Umbraco.ezSearch
             var property = (umbraco.NodeFactory.Property)node.GetProperty(alias);
             return property == null ? string.Empty : property.Value;
         }
+
+        //ExamineEventsHelper
+        //{
+        //    ExamineManager.Instance.IndexProviderCollection["ExternalIndexer"].RebuildIndex();
+        //}
     }
 }

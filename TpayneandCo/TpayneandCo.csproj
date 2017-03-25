@@ -445,7 +445,9 @@
     <Content Include="config\log4net.config" />
     <Content Include="config\FileSystemProviders.config" />
     <Content Include="config\feedProxy.config" />
-    <Content Include="config\ExamineSettings.config" />
+    <Content Include="config\ExamineSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="config\ExamineIndex.config">
       <SubType>Designer</SubType>
     </Content>
@@ -474,7 +476,9 @@
     <Content Include="Scripts\switcher.js" />
     <Content Include="Scripts\url.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
