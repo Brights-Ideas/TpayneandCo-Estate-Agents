@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4b80ee1d564dd31b")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "808ea2de0830ebeb")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -809,9 +809,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Main Summary: This is typically 300 characters long and should not contain HTML. It is usually used for the search results summary.
 		///</summary>
 		[ImplementPropertyType("mainSummary")]
-		public string MainSummary
+		public IHtmlString MainSummary
 		{
-			get { return this.GetPropertyValue<string>("mainSummary"); }
+			get { return this.GetPropertyValue<IHtmlString>("mainSummary"); }
 		}
 
 		///<summary>

@@ -9,6 +9,8 @@
 
     var imagesList = Model.Content.GetPropertyValue<string>("images").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
     var imagesCollection = Umbraco.TypedMedia(imagesList).Where(x => x != null);
+    var propertyPrice = Model.Content.GetPropertyValue<string>("department") == "Sales" ? CurrentPage.Price : CurrentPage.Rent;
+
 }
 
 <div id="main-wrapper">
@@ -20,7 +22,7 @@
                     <article class="box page-content">
                         <header>
                             <h2>@pageTitle</h2>
-                            <p>@(String.Format(new CultureInfo("en-GB"), "{0:C}", CurrentPage.Price) )</p>
+                            <p>@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice) )</p>
                         </header>
                         <section>
                             <div id="showcase-loader" style="display: none;"></div>
@@ -43,7 +45,7 @@
                                         @foreach (var image in imagesCollection)
                                         {
                                             <div class="item">
-                                                <a href="#" data-slide="0">
+                                                <a href="#" data-slide="@image.SortOrder">
                                                     <img class="img-responsive" src="@image.Url" alt="@image.Name" height="200px" width="200px">
                                                 </a>
                                             </div>
