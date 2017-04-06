@@ -1122,6 +1122,10 @@
 			position: relative;
 			display: inline-block;
 		}
+		
+		h4.lead span {
+			font-size: 15px;
+		}
 
 	a {
 		color: #006376;

@@ -19,7 +19,7 @@
     {
         SearchTerms = new Dictionary<string, string>(),
         Location = "" + Request["Location"],//.ToLower(CultureInfo.InvariantCulture),
-
+        //SalesLocation = SalesLocation.Any,// ?? (SalesLocation)Enum.Parse(typeof(SalesLocation), Request["Location"]),//; Convert.ToInt32(Request["Location"]),
         MinBedrooms = Convert.ToInt32(Request["MinBedrooms"]),
         MinPrice = Convert.ToInt32(Request["MinPrice"]),
         MaxPrice = Convert.ToInt32(Request["MaxPrice"]),
@@ -118,16 +118,18 @@
 
         // Ensure page contains all search terms in some way
         //groupedOr.AppendFormat("{0}:{1}* ", searchField, term.Value);
-        var region = string.IsNullOrEmpty(model.Location) ? "any" : model.Location;
+        //var region = string.IsNullOrEmpty(model.Location) ? "any" : model.Location;
+        var region = string.IsNullOrEmpty(model.Location) ? SalesLocation.Any : (SalesLocation)Enum.Parse(typeof(SalesLocation), model.Location);// model.Location;
 
-        if (region != "any")
+        if (region != SalesLocation.Any)//if (region != "any")
         {
-            query.And().Field("regionID", model.Location);
+            var regionId = (int)region;
+            query.And().Field("regionID", regionId.ToString());//query.And().Field("regionID", model.Location);
         }
         else
         {
             model.Department = CurrentPage.Id == 1106 ? "sales" : "lettings";
-
+            //model.SearchTerm = "Location=" + SalesLocation.Any + "&" + "MinPrice=" + model.MinPrice + "&" + "MaxPrice=" + model.MaxPrice + "&" + "department=" + model.Department + "&" + "orderby=" + model.SortOrder;
             model.SearchTerm = "Location=any&" + "MinPrice=" + model.MinPrice + "&" + "MaxPrice=" + model.MaxPrice + "&" + "department=" + model.Department + "&" + "orderby=" + model.SortOrder;
         }
 
@@ -289,25 +291,41 @@ if (model.Department == "sales")
             <div class="row">
                 @*Residential Sales *@
                 <div class="4u 12u(mobile)">
+                    @*@Html.EnumDropDownListFor(m => model.SalesLocation, "Any Location", new { Name = "Location", @class = "12u selectpicker", onchange = "this.form.submit()" })*@
                     <select name="Location" class="12u selectpicker" onchange="this.form.submit()" data-none-selected-text="Any Location">
-                        <option value="any">Any Location</option>
-                        <option value="1">
-                            Wisbech
-                        </option>
-                        <option value="2">
+                        <option value="Any">Any Location</option>
+                        <option value="Benwick">
                             Benwick
                         </option>
-                        <option value="5">
-                            March
-                        </option>
-                        <option value="7">
+                        <option value="Chatteris">
                             Chatteris
                         </option>
-                        <option value="9">
+                        <option value="Doddington">
+                            Doddington
+                        </option>
+                        <option value="Ely">
+                            Ely
+                        </option>
+                        <option value="Guyhirn">
+                            Guyhirn
+                        </option>
+                        <option value="March">
+                            March
+                        </option>
+                        <option value="Peterborough">
+                            Peterborough
+                        </option>
+                        <option value="Ramsey">
                             Ramsey
                         </option>
-                        <option value="31">
-                            Ely
+                        <option value="Sutton">
+                            Sutton
+                        </option>
+                        <option value="Warboys">
+                            Warboys
+                        </option>
+                        <option value="Wisbech">
+                            Wisbech
                         </option>
                     </select>
                 </div>
@@ -670,6 +688,7 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
                     @if (model.Department == "sales" && result.GetPropertyValue<string>("availability") == "4")
                     {
                         <div class="corner_banner"><h2>sold stc</h2></div>
+
                     }
                     @if (model.Department == "lettings" && result.GetPropertyValue<string>("letAvailability") == "4")
                     {
@@ -698,7 +717,8 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
                         }
                         else
                         {
-                            <h4 class="lead">@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice) )</h4>
+                            var bob = Enum.GetName(typeof(PriceQualifier), result.GetPropertyValue<int>("priceQualifier"));
+                            <h4 class="lead">@(String.Format(new CultureInfo("en-GB"), "{0:C}", propertyPrice) ) <span>@(bob != null ? bob.Replace("_", " ") : "")</span></h4>
                         }
                     </div>
                     <div class="col-xs-12 col-md-7">
@@ -913,6 +933,7 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
         public int MaxPrice { get; set; }
         public string SortOrder { get; set; }
         public string Location { get; set; }
+        public SalesLocation SalesLocation { get; set; }
         public string SearchTerm { get; set; }
         public string Department { get; set; }
         public Dictionary<string, string> SearchTerms { get; set; }
@@ -944,4 +965,38 @@ var propertyPrice = result.GetPropertyValue<string>("department") == "Sales" ? r
         pw,
         pa
     }
-}
+
+    public enum SalesLocation
+    {
+        Any = 0,
+        Benwick = 2,
+        Chatteris = 7,
+        Doddington = 5,
+        Ely = 31,
+        Guyhirn = 1,
+        March = 5,
+        Peterborough = 13,
+        Ramsey = 9,
+        Sutton = 31,
+        Warboys = 17,
+        Wisbech = 1
+    }
+
+    public enum PriceQualifier
+    {
+        Asking_Price_Of = 1,
+        Fixed_Price = 2,
+        From = 3,
+        Guide_Price = 4,
+        Offers_In_Region_Of = 5,
+        Offers_Over = 6,
+        Auction_Guide_Price = 7,
+        Sale_By_Tender = 8,
+        Shared_Ownership = 9,
+        Offers_In_Excess_Of = 10,
+        Offers_Invited = 11,
+        Starting_Bid = 12
+    }
+
+
+    }
