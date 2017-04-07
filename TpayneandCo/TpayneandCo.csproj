@@ -218,6 +218,10 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="reCAPTCHA.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\reCAPTCH.MVC.1.0.1\lib\net45\reCAPTCHA.MVC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\semver.1.1.2\lib\net451\Semver.dll</HintPath>
       <Private>True</Private>
@@ -361,15 +365,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="apple-icon-114x114.png" />
+    <Content Include="apple-icon-144x144.png" />
+    <Content Include="apple-icon-57x57.png" />
+    <Content Include="apple-icon-72x72.png" />
     <Content Include="App_Code\ezSearchBoostrapper.cs" />
     <Content Include="App_Code\ExamineEventsHelper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -519,10 +529,10 @@
     <Content Include="Views\MacroPartials\ezSearch.cshtml" />
     <Content Include="Views\PropertyDetails.cshtml" />
     <Content Include="Views\PropertyOverview.cshtml" />
+    <Content Include="Views\Partials\umbContactForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
