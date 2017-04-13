@@ -65,6 +65,7 @@
         </div>
         <!-- Copyright -->
         <div id="copyright">
+			  @{ Html.RenderPartial("umbFooterLinks"); }
             &copy; @DateTime.Now.Year @Umbraco.Field("copyright", recursive: true) | Images: <a href="http://fotogrph.com">fotogrph</a> + <a href="http://iconify.it">Iconify.it</a> | Design: <a href="http://html5up.net/">HTML5 UP</a>
         </div>
         <!-- /Copyright -->

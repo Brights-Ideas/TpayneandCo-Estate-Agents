@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "2de17118ff7cfd14")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "bf091275db44bc94")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -271,6 +271,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string RssLink
 		{
 			get { return this.GetPropertyValue<string>("rssLink"); }
+		}
+
+		///<summary>
+		/// Service Links
+		///</summary>
+		[ImplementPropertyType("serviceLinks")]
+		public RJP.MultiUrlPicker.Models.MultiUrls ServiceLinks
+		{
+			get { return this.GetPropertyValue<RJP.MultiUrlPicker.Models.MultiUrls>("serviceLinks"); }
 		}
 
 		///<summary>
