@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TpayneandCo", "TpayneandCo\TpayneandCo.csproj", "{AF34DBF6-4C4F-4EE4-8EEF-6304F8C4B498}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPayneandCo.WebUI", "TPayneandCo.WebUI\TPayneandCo.WebUI.csproj", "{8EBA0161-270E-4C3D-AB5D-06D134338D1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AF34DBF6-4C4F-4EE4-8EEF-6304F8C4B498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF34DBF6-4C4F-4EE4-8EEF-6304F8C4B498}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF34DBF6-4C4F-4EE4-8EEF-6304F8C4B498}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF34DBF6-4C4F-4EE4-8EEF-6304F8C4B498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBA0161-270E-4C3D-AB5D-06D134338D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBA0161-270E-4C3D-AB5D-06D134338D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBA0161-270E-4C3D-AB5D-06D134338D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBA0161-270E-4C3D-AB5D-06D134338D1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C0A2172-07A9-42EC-B3D7-829B2A86C33E}
 	EndGlobalSection
 EndGlobal
